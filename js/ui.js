@@ -150,3 +150,18 @@ export function court(texte, max = 90) {
   const coupe = texte.slice(0, max);
   return `${coupe.slice(0, coupe.lastIndexOf(' '))}…`;
 }
+
+/**
+ * Marque de l'application : les deux pans du rabat de l'avocat, traversés d'un éclair.
+ * Dessinée en SVG plutôt qu'en image pour rester nette à toute taille et suivre le thème.
+ */
+export function logo(taille = 30) {
+  return svg(
+    'svg',
+    { class: 'logo', width: taille, height: taille, viewBox: '0 0 48 48', 'aria-hidden': 'true', focusable: 'false' },
+    svg('circle', { class: 'logo-anneau', cx: 24, cy: 24, r: 20.5, fill: 'none', 'stroke-width': 2.4 }),
+    svg('path', { class: 'logo-pan', d: 'M14.5 12h8.2l-.7 17.8a3.6 3.6 0 0 1-3.6 3.4 3.6 3.6 0 0 1-3.6-3.4z' }),
+    svg('path', { class: 'logo-pan', d: 'M25.3 12h8.2l-.7 17.8a3.6 3.6 0 0 1-3.6 3.4 3.6 3.6 0 0 1-3.6-3.4z' }),
+    svg('path', { class: 'logo-eclair', d: 'M26.8 11 17.4 25.8h5.1l-2.4 11L30 21.4h-5.3z', 'stroke-width': 1.7, 'stroke-linejoin': 'round' })
+  );
+}
