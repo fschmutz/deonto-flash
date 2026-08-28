@@ -25,11 +25,11 @@ que la stabilité est faible. La fiche revient le jour où elle retombe à **90 
 
 ## Vos quatre notes
 
-- **Encore** — vous ne saviez pas. La stabilité baisse et la fiche revient dans dix minutes,
+- **Encore** : vous ne saviez pas. La stabilité baisse et la fiche revient dans dix minutes,
   en fin de session.
-- **Difficile** — retrouvé, mais péniblement. L’intervalle progresse peu.
-- **Bien** — la réponse est venue. L’intervalle progresse normalement.
-- **Facile** — immédiat. L’intervalle fait un bond.
+- **Difficile** : retrouvé, mais péniblement. L’intervalle progresse peu.
+- **Bien** : la réponse est venue. L’intervalle progresse normalement.
+- **Facile** : immédiat. L’intervalle fait un bond.
 
 L’intervalle prévu s’affiche sous chaque bouton avant que vous ne choisissiez.
 

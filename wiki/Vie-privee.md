@@ -10,7 +10,7 @@ sécurité du contenu est `default-src 'self'` : le navigateur refuse tout charg
 autre domaine.
 
 Le seul échange réseau est le téléchargement de l’application elle‑même depuis GitHub Pages,
-au premier chargement — comme n’importe quelle page web. Ensuite, le service worker la sert
+au premier chargement : comme n’importe quelle page web. Ensuite, le service worker la sert
 depuis le cache et l’application fonctionne hors ligne.
 
 ## Ce qui est stocké, et où

@@ -9,12 +9,12 @@ programme publié. L’admission est prononcée à partir de **12/20**.
 
 ## Par où commencer
 
-1. **[Les quatre modes](Modes)** — ce que chacun travaille, et quand l’utiliser.
-2. **[Le programme](Le-programme)** — les six parcours et les 34 sujets.
-3. **[La révision espacée](Revision-espacee)** — pourquoi les fiches reviennent quand elles reviennent.
-4. **[La note blanche](Note-blanche)** — comment elle est calculée, et ce qu’elle ne vaut pas.
-5. **[Sources et limites](Sources)** — d’où vient le contenu, et ce qu’il faut re‑vérifier.
-6. **[Vie privée](Vie-privee)** — ce qui est stocké, où, et par qui.
+1. **[Les quatre modes](Modes)** : ce que chacun travaille, et quand l’utiliser.
+2. **[Le programme](Le-programme)** : les six parcours et les 34 sujets.
+3. **[La révision espacée](Revision-espacee)** : pourquoi les fiches reviennent quand elles reviennent.
+4. **[La note blanche](Note-blanche)** : comment elle est calculée, et ce qu’elle ne vaut pas.
+5. **[Sources et limites](Sources)** : d’où vient le contenu, et ce qu’il faut re‑vérifier.
+6. **[Vie privée](Vie-privee)** : ce qui est stocké, où, et par qui.
 
 ## En une phrase
 

@@ -7,7 +7,7 @@ C’est la contribution la plus utile. Ouvrez une issue en indiquant :
 1. le sujet et la fiche concernés ;
 2. ce qui est écrit ;
 3. ce qui devrait l’être ;
-4. **le texte applicable**, avec son article — c’est la seule chose qui permet de trancher.
+4. **le texte applicable**, avec son article : c’est la seule chose qui permet de trancher.
 
 Le droit évolue : une correction sans référence ne peut pas être intégrée.
 

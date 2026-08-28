@@ -1,7 +1,7 @@
 # La note blanche
 
 Une estimation sur 20, affichée sur le tableau de bord et dans la vue Progression, avec un
-repère à 12 — la barre d’admission.
+repère à 12 : la barre d’admission.
 
 ## Le calcul
 
@@ -18,7 +18,7 @@ aucun oral, la note repose sur les fiches et les QCM.
 
 **Elle ne prédit pas votre note.** Deux raisons.
 
-D’abord, la composante la plus lourde à l’oral — trente pour cent — est **auto‑évaluée**. Une
+D’abord, la composante la plus lourde à l’oral (trente pour cent) est **auto‑évaluée**. Une
 notation complaisante produit une note flatteuse et rigoureusement inutile. Notez‑vous comme
 vous noteriez un candidat que vous ne connaissez pas.
 

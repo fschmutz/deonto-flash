@@ -9,7 +9,7 @@
 [![Privacy](https://img.shields.io/badge/vie_privée-rien_n'est_envoyé-0E1116?style=for-the-badge)](https://github.com/fschmutz/deonto-flash/wiki/Vie-privee)
 [![Wiki](https://img.shields.io/badge/wiki-comment_ça_marche-47A583?style=for-the-badge)](https://github.com/fschmutz/deonto-flash/wiki)
 
-<img src="assets/apercu-accueil.png" alt="Déonto Flash — tableau de bord : rang, note blanche estimée, six parcours" width="880">
+<img src="assets/apercu-accueil.png" alt="Déonto Flash · tableau de bord : rang, note blanche estimée, six parcours" width="880">
 
 **[Ouvrir l’application →](https://fschmutz.github.io/deonto-flash/)**
 
@@ -54,7 +54,7 @@ Ils suivent l’ordre et les intitulés du programme officiel.
 
 Un sceau s’acquiert lorsque 80 % des fiches d’un parcours ont atteint trois semaines de
 stabilité mémorielle. Six sceaux, un rang qui progresse d’Élève‑avocat à Doyen de l’ordre,
-une série de jours consécutifs, et une **note blanche** estimée sur 20 — pondérée à 50 % par
+une série de jours consécutifs, et une **note blanche** estimée sur 20 : pondérée à 50 % par
 la maîtrise des fiches, 20 % par la réussite aux QCM et 30 % par la moyenne des cinq
 derniers oraux.
 
@@ -101,7 +101,23 @@ Le contrôle visuel parcourt les vingt‑et‑un écrans dans trois formats et d
 chacun, et échoue sur toute erreur JavaScript, requête en échec, débordement horizontal,
 texte tronqué, cible tactile trop petite ou contraste sous le seuil WCAG AA.
 
-Si la page en ligne paraît figée sur une ancienne version, un bandeau propose de recharger —
+```bash
+python3 scripts/parcours-apprenant.py
+```
+
+Le parcours apprenant joue l’application comme un candidat : une série de QCM menée jusqu’au
+bout, une session de fiches notée sur les quatre boutons, un oral du tirage à la note, un plan
+express rédigé puis comparé. Il capture chaque moment d’apprentissage et écrit le texte réellement
+affiché dans `parcours/textes.json`, pour que le contenu se relise au lieu de se mesurer.
+
+```bash
+python3 scripts/icones.py
+```
+
+La marque est dessinée une seule fois, dans `js/ui.js`. Ce script en relit les tracés et
+régénère les icônes et la carte sociale, pour qu’elles ne puissent pas diverger du logo.
+
+Si la page en ligne paraît figée sur une ancienne version, un bandeau propose de recharger : 
 le service worker sert sinon la version en cache.
 
 ## Licence

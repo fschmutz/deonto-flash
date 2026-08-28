@@ -34,7 +34,7 @@ export function vueProgression() {
         'div',
         { class: 'chiffres' },
         h('div', { class: 'chiffre' }, h('b', { text: pct(globale) }), h('span', { text: 'maîtrise fiches' })),
-        h('div', { class: 'chiffre' }, h('b', { text: taux === null ? '—' : pct(taux) }), h('span', { text: 'réussite QCM' })),
+        h('div', { class: 'chiffre' }, h('b', { text: taux === null ? '–' : pct(taux) }), h('span', { text: 'réussite QCM' })),
         h('div', { class: 'chiffre' }, h('b', { text: String(etat.oraux.length) }), h('span', { text: 'oraux' }))
       ),
       h('p', { class: 'avertissement', text: 'Pondération : 50 % la maîtrise des fiches, 20 % la réussite aux QCM, 30 % la moyenne de vos cinq derniers oraux. Les critères d’oral sont auto‑évalués : cette note vaut ce que vaut votre sévérité.' })

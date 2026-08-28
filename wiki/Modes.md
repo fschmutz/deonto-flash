@@ -2,7 +2,7 @@
 
 ## Simulateur d’oral
 
-Le format réel. Un sujet est tiré au sort — aucune préparation, comme le jour J — puis trente
+Le format réel. Un sujet est tiré au sort (aucune préparation, comme le jour J) puis trente
 minutes s’écoulent en trois phases :
 
 | Phase | Durée | Ce qu’on attend de vous |
@@ -37,8 +37,8 @@ premières minutes.
 ## QCM et cas pratiques
 
 Dix questions, trente secondes chacune, sur ce qui ne s’improvise pas : délais, seuils,
-quorums, majorités. Les options sont mélangées à chaque affichage — la position d’une bonne
+quorums, majorités. Les options sont mélangées à chaque affichage : la position d’une bonne
 réponse n’est jamais un indice.
 
-Les cas pratiques présentent une situation à qualifier. Formulez l’analyse à voix haute —
-textes applicables, qualification, conséquence, conduite à tenir — avant d’ouvrir la réponse.
+Les cas pratiques présentent une situation à qualifier. Formulez l’analyse à voix haute : 
+textes applicables, qualification, conséquence, conduite à tenir : avant d’ouvrir la réponse.
