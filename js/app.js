@@ -3,7 +3,7 @@
 import { APP_VERSION } from './version.js';
 import { BLOCS, SUJETS, SUJET_PAR_ID, STATS } from './data/index.js';
 import * as S from './store.js';
-import { h, jauge, anneau, pct, section, vide, court } from './ui.js';
+import { h, jauge, anneau, logo, pct, section, vide, court } from './ui.js';
 import { vueFiches } from './mode-fiches.js';
 import { vueOral } from './mode-oral.js';
 import { vueEntrainement, vueQcm, vueCas, vuePlans } from './mode-exercices.js';
@@ -22,6 +22,7 @@ function appliquerTheme(nom) {
   if (meta) meta.setAttribute('content', nom === 'papier' ? '#f5f2ec' : '#0e1116');
 }
 appliquerTheme(S.lire().theme || 'encre');
+$('marque-logo').append(logo(28));
 $('theme').addEventListener('click', () => {
   S.modifier((s) => {
     s.theme = s.theme === 'papier' ? 'encre' : 'papier';
@@ -85,7 +86,7 @@ function router() {
     else a.removeAttribute('aria-current');
   }
   $('retour').classList.toggle('cache', chemin === '/' || Boolean(onglet));
-  document.title = chemin === '/' ? 'Déonto Flash' : `Déonto Flash — ${noeud.dataset.titre || ''}`.trim();
+  document.title = chemin === '/' ? 'Déonto Flash' : `Déonto Flash · ${noeud.dataset.titre || ''}`.trim();
 }
 
 window.addEventListener('hashchange', router);
@@ -100,36 +101,60 @@ function vueAccueil() {
   const admis = note >= 12;
   const vus = S.sujetsRevus();
 
-  const bandeau = h(
-    'div',
-    { class: 'bandeau' },
-    h(
-      'div',
-      { class: 'bandeau-haut' },
-      h(
+  // Au premier lancement, une note de 0,0/20 en rouge et six jauges vides n'informent de
+  // rien et decouragent. On montre alors le point de depart, pas un bulletin.
+  const debutant = r.xp === 0 && vus === 0 && !etat.oraux.length;
+
+  const bandeau = debutant
+    ? h(
         'div',
-        {},
-        h('div', { class: 'rang', text: r.nom }),
-        h('div', { class: 'rang-xp', text: r.suivant ? `${r.xp} pts · ${r.suivant.seuil - r.xp} avant ${r.suivant.nom}` : `${r.xp} pts` })
-      ),
-      h(
-        'div',
-        { class: `note-blanche ${admis ? 'ok' : 'ko'}` },
-        h('b', { text: note.toFixed(1) }),
-        h('span', { class: 'rang-xp', text: '/ 20 estimé' })
+        { class: 'bandeau accueil-debut' },
+        h('div', { class: 'rang', text: 'Premier jour' }),
+        h('p', { class: 'sous-titre', text: 'Trente minutes à l’oral, sans préparation, sur un sujet tiré au sort parmi trente‑quatre. Tout se joue sur des réflexes, et un réflexe s’entretient un peu chaque jour.' }),
+        h(
+          'div',
+          { class: 'chiffres' },
+          h('div', { class: 'chiffre' }, h('b', { text: String(STATS.sujets) }), h('span', { text: 'sujets' })),
+          h('div', { class: 'chiffre' }, h('b', { text: String(STATS.cartes) }), h('span', { text: 'fiches' })),
+          h('div', { class: 'chiffre' }, h('b', { text: String(STATS.qcm) }), h('span', { text: 'questions' }))
+        ),
+        h(
+          'div',
+          { class: 'actions' },
+          h('a', { class: 'btn principal', href: '#/fiches', text: 'Commencer par douze fiches' }),
+          h('a', { class: 'btn', href: '#/oral', text: 'Tenter un oral tout de suite' })
+        )
       )
-    ),
-    jauge(r.part),
-    h('div', { class: `barre-12 ${admis ? 'ok' : ''}` }, h('i', { style: `width:${Math.min(100, (note / 20) * 100).toFixed(1)}%` })),
-    h('p', { class: 'avertissement', text: 'Le repère marque 12/20, la barre d’admission. L’estimation combine la maîtrise des fiches, la réussite aux QCM et vos auto-évaluations d’oral : elle ne vaut que ce que vaut votre sévérité.' }),
-    h(
-      'div',
-      { class: 'chiffres' },
-      h('div', { class: 'chiffre' }, h('b', { text: String(compteurs.session) }), h('span', { text: 'à revoir' })),
-      h('div', { class: 'chiffre' }, h('b', { text: `${vus}/${STATS.sujets}` }), h('span', { text: 'sujets ouverts' })),
-      h('div', { class: 'chiffre' }, h('b', { text: String(etat.oraux.length) }), h('span', { text: 'oraux passés' }))
-    )
-  );
+    : h(
+        'div',
+        { class: 'bandeau' },
+        h(
+          'div',
+          { class: 'bandeau-haut' },
+          h(
+            'div',
+            {},
+            h('div', { class: 'rang', text: r.nom }),
+            h('div', { class: 'rang-xp', text: r.suivant ? `${r.xp} pts · ${r.suivant.seuil - r.xp} avant ${r.suivant.nom}` : `${r.xp} pts` })
+          ),
+          h(
+            'div',
+            { class: `note-blanche ${admis ? 'ok' : 'ko'}` },
+            h('b', { text: note.toFixed(1) }),
+            h('span', { class: 'rang-xp', text: '/ 20 estimé' })
+          )
+        ),
+        jauge(r.part),
+        h('div', { class: `barre-12 ${admis ? 'ok' : ''}` }, h('i', { style: `width:${Math.min(100, (note / 20) * 100).toFixed(1)}%` })),
+        h('p', { class: 'avertissement', text: 'Le repère marque 12/20, la barre d’admission. L’estimation combine la maîtrise des fiches, la réussite aux QCM et vos auto-évaluations d’oral : elle ne vaut que ce que vaut votre sévérité.' }),
+        h(
+          'div',
+          { class: 'chiffres' },
+          h('div', { class: 'chiffre' }, h('b', { text: String(compteurs.session) }), h('span', { text: 'à revoir' })),
+          h('div', { class: 'chiffre' }, h('b', { text: `${vus}/${STATS.sujets}` }), h('span', { text: 'sujets ouverts' })),
+          h('div', { class: 'chiffre' }, h('b', { text: String(etat.oraux.length) }), h('span', { text: 'oraux passés' }))
+        )
+      );
 
   const modes = h(
     'div',
@@ -154,7 +179,7 @@ function vueAccueil() {
           { class: 'bloc-haut' },
           h('span', { class: 'bloc-n', text: `0${b.n}` }),
           h('h3', { text: b.titre }),
-          h('span', { class: 'bloc-part', text: pct(part) })
+          h('span', { class: `bloc-part${part > 0 ? '' : ' neuf'}`, text: part > 0 ? pct(part) : 'à découvrir' })
         ),
         h('p', { text: b.resume }),
         jauge(part),

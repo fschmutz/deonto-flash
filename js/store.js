@@ -285,3 +285,29 @@ export function marquerVu(sujetId) {
 
 export const sujetsRevus = () => Object.keys(etat.vus).length;
 export const totalSujets = () => SUJETS.length;
+
+// --- Jalons ---------------------------------------------------------------
+// Un rang ou un sceau se gagne au milieu d'un exercice, jamais sur un ecran dedie.
+// On photographie l'etat avant, on compare apres, et l'ecran de resultat annonce
+// exactement ce qui a ete franchi pendant la serie.
+
+export function capturerJalons() {
+  return {
+    xp: etat.xp,
+    rang: rang().index,
+    sceaux: sceaux()
+      .filter((s) => s.acquis)
+      .map((s) => s.bloc)
+  };
+}
+
+export function jalonsDepuis(avant) {
+  const apres = capturerJalons();
+  const gagnes = apres.sceaux.filter((b) => !avant.sceaux.includes(b));
+  return {
+    points: apres.xp - avant.xp,
+    rang: apres.rang > avant.rang ? RANGS[apres.rang].nom : null,
+    sceaux: gagnes.map((b) => (BLOCS.find((x) => x.id === b) || {}).sceau).filter(Boolean),
+    serie: etat.serie.jours
+  };
+}

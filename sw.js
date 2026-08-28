@@ -10,6 +10,7 @@ const COQUE = [
   './css/fonts.css',
   './js/app.js',
   './js/ui.js',
+  './js/celebration.js',
   './js/store.js',
   './js/fsrs.js',
   './js/version.js',

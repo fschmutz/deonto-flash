@@ -4,6 +4,7 @@
 import { BLOCS, SUJETS, SUJET_PAR_ID } from './data/index.js';
 import * as S from './store.js';
 import { auHasard, chronometre, h, melanger, mmss, vide } from './ui.js';
+import { bandeauRecompense, celebrer } from './celebration.js';
 
 const DUREE = 30 * 60 * 1000;
 
@@ -145,7 +146,7 @@ export function vueOral(filtre) {
         h(
           'details',
           { class: 'repli jury-q' },
-          h('summary', {}, `Question ${revelees} — ${q.q}`),
+          h('summary', {}, `Question ${revelees} · ${q.q}`),
           h('div', {}, h('p', { class: 'avertissement', text: 'Répondez à voix haute avant d’ouvrir.' }), h('p', { text: q.r }))
         )
       );
@@ -225,8 +226,9 @@ export function vueOral(filtre) {
 
     function valider() {
       const total = CRITERES.reduce((n, c) => n + notes[c.id], 0);
+      const depart = S.capturerJalons();
       S.enregistrerOral(sujet.id, total, duree);
-      ecranResultat(total, duree);
+      ecranResultat(total, duree, S.jalonsDepuis(depart));
     }
 
     contenu.replaceChildren(
@@ -241,16 +243,18 @@ export function vueOral(filtre) {
 
   // ---------- Écran 5 : résultat ----------
 
-  function ecranResultat(total, duree) {
+  function ecranResultat(total, duree, jalons = { points: 0, sceaux: [] }) {
     const admis = total >= 12;
+    const bloc = h(
+      'div',
+      { class: 'resultat carte' },
+      h('div', { class: `grosse-note ${admis ? 'ok' : 'ko'}`, text: `${total}/20` }),
+      h('div', { class: 'verdict-texte', text: admis ? 'Au‑dessus de la barre d’admission.' : 'Sous la barre de 12/20.' }),
+      h('p', { class: 'avertissement', text: `${sujet.titre} · ${mmss(duree)}` }),
+      bandeauRecompense(jalons)
+    );
     contenu.replaceChildren(
-      h(
-        'div',
-        { class: 'resultat carte' },
-        h('div', { class: `grosse-note ${admis ? 'ok' : 'ko'}`, text: `${total}/20` }),
-        h('div', { class: 'verdict-texte', text: admis ? 'Au‑dessus de la barre d’admission.' : 'Sous la barre de 12/20.' }),
-        h('p', { class: 'avertissement', text: `${sujet.titre} · ${mmss(duree)}` })
-      ),
+      bloc,
       h(
         'div',
         { class: 'carte' },
@@ -265,6 +269,8 @@ export function vueOral(filtre) {
         h('a', { class: 'btn', href: '#/progression', text: 'Progression' })
       )
     );
+    if (jalons.rang || jalons.sceaux.length) celebrer('sceau', bloc);
+    else if (admis) celebrer('franc', bloc);
   }
 
   if (cible.impose) {

@@ -2,7 +2,8 @@
 
 import { BLOCS, CAS, QCM, SUJETS, SUJET_PAR_ID, optionsMelangees } from './data/index.js';
 import * as S from './store.js';
-import { auHasard, chronometre, h, melanger, mmss, section, vide } from './ui.js';
+import { auHasard, chronometre, court, h, melanger, mmss, section, vide } from './ui.js';
+import { bandeauRecompense, celebrer } from './celebration.js';
 
 const LONGUEUR_QCM = 10;
 const SECONDES_PAR_QUESTION = 30000;
@@ -26,7 +27,7 @@ export function vueEntrainement() {
         { class: 'mode', href: '#/qcm' },
         taux !== null ? h('span', { class: 'pastille', text: `${Math.round(taux * 100)} %` }) : null,
         h('h3', {}, h('span', { class: 'ico-mode', 'aria-hidden': 'true' }, '◎'), 'QCM chronométré'),
-        h('p', { text: `${LONGUEUR_QCM} questions, trente secondes chacune. Les délais, les seuils, les quorums — ce que le jury vérifie en premier.` })
+        h('p', { text: `${LONGUEUR_QCM} questions, trente secondes chacune. Les délais, les seuils, les quorums : ce que le jury vérifie en premier.` })
       ),
       h(
         'a',
@@ -50,7 +51,7 @@ export function vueEntrainement() {
           'a',
           { class: 'sujet', href: `#/qcm/${b.id}` },
           h('span', { class: 'sujet-n', text: `0${b.n}` }),
-          h('span', { class: 'sujet-nom', text: `QCM — ${b.court}` }),
+          h('span', { class: 'sujet-nom', text: `QCM · ${b.court}` }),
           h('span', { class: 'bloc-part', text: `${QCM.filter((q) => q.bloc === b.id).length} q.` })
         )
       )
@@ -75,6 +76,7 @@ export function vueQcm(filtreBloc) {
   );
 
   const resultats = new Array(questions.length).fill(null);
+  const jalonsDepart = S.capturerJalons();
   let index = 0;
   let arreter = null;
   const nettoyer = () => {
@@ -180,16 +182,43 @@ export function vueQcm(filtreBloc) {
   function rendreFin() {
     const justes = resultats.filter(Boolean).length;
     const part = justes / questions.length;
+    const jalons = S.jalonsDepuis(jalonsDepart);
+    const ratees = questions.filter((q, i) => resultats[i] === false);
+
+    const bloc = h(
+      'div',
+      { class: 'resultat carte' },
+      h('div', { class: `grosse-note ${part >= 0.7 ? 'ok' : 'ko'}`, text: `${justes}/${questions.length}` }),
+      h('div', {
+        class: 'verdict-texte',
+        text: part >= 0.9 ? 'Les chiffres sont acquis.' : part >= 0.7 ? 'Solide, quelques points à revoir.' : 'Reprenez les fiches du parcours : les seuils ne s’improvisent pas.'
+      }),
+      bandeauRecompense(jalons)
+    );
+
     contenu.replaceChildren(
-      h(
-        'div',
-        { class: 'resultat carte' },
-        h('div', { class: `grosse-note ${part >= 0.7 ? 'ok' : 'ko'}`, text: `${justes}/${questions.length}` }),
-        h('div', {
-          class: 'verdict-texte',
-          text: part >= 0.9 ? 'Les chiffres sont acquis.' : part >= 0.7 ? 'Solide, quelques points à revoir.' : 'Reprenez les fiches du parcours : les seuils ne s’improvisent pas.'
-        })
-      ),
+      bloc,
+      ratees.length
+        ? h(
+            'div',
+            { class: 'carte' },
+            h('h3', { text: ratees.length > 1 ? `Les ${ratees.length} questions manquées` : 'La question manquée' }),
+            h(
+              'div',
+              { class: 'liste-lignes' },
+              ratees.map((q) => {
+                const sujet = SUJET_PAR_ID.get(q.sujet);
+                return h(
+                  'a',
+                  { class: 'ligne lien-ligne', href: sujet ? `#/sujet/${sujet.id}` : '#/entrainement' },
+                  h('span', { class: 'nom', text: q.q }),
+                  h('span', { class: 'val', text: sujet ? court(sujet.titre, 46) : 'Voir le programme' })
+                );
+              })
+            ),
+            h('p', { class: 'avertissement', text: 'Ouvrez la fiche du sujet : une erreur de seuil se corrige au texte, pas à la répétition.' })
+          )
+        : h('div', { class: 'carte' }, h('p', { class: 'avertissement', text: 'Série parfaite. Le parcours suivant vous attend.' })),
       h(
         'div',
         { class: 'actions' },
@@ -197,6 +226,9 @@ export function vueQcm(filtreBloc) {
         h('a', { class: 'btn', href: '#/entrainement', text: 'Autres exercices' })
       )
     );
+
+    if (jalons.rang || jalons.sceaux.length) celebrer('sceau', bloc);
+    else if (part >= 0.8) celebrer('franc', bloc);
   }
 
   rendre();
@@ -271,13 +303,16 @@ export function vuePlans(sujetImpose) {
 
   function comparer(sujet, texte) {
     nettoyer();
+    const depart = S.capturerJalons();
     S.enregistrerPlan(sujet.id);
+    const jalons = S.jalonsDepuis(depart);
     contenu.replaceChildren(
       h('div', { class: 'fil', text: 'Comparaison' }),
       h('h1', { class: 'titre-vue', text: sujet.titre }),
+      bandeauRecompense(jalons),
       texte.trim()
         ? h('div', { class: 'carte' }, h('h3', { text: 'Votre plan' }), h('p', { style: 'white-space:pre-wrap', text: texte.trim() }))
-        : h('div', { class: 'carte' }, h('p', { class: 'avertissement', text: 'Aucun plan saisi — l’exercice vaut aussi à l’oral, mais l’écrit permet la comparaison.' })),
+        : h('div', { class: 'carte' }, h('p', { class: 'avertissement', text: 'Aucun plan saisi, l’exercice vaut aussi à l’oral, mais l’écrit permet la comparaison.' })),
       h(
         'div',
         { class: 'carte' },
@@ -297,6 +332,7 @@ export function vuePlans(sujetImpose) {
         h('a', { class: 'btn', href: `#/sujet/${sujet.id}`, text: 'Fiche complète' })
       )
     );
+    celebrer(jalons.rang || jalons.sceaux.length ? 'sceau' : 'discret', contenu.querySelector('.recompense') || contenu);
   }
 
   ecranDepart();

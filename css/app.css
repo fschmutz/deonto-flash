@@ -1,4 +1,4 @@
-/* Déonto Flash — feuille unique. Deux thèmes : encre (défaut) et papier. */
+/* Déonto Flash, feuille unique. Deux thèmes : encre (défaut) et papier. */
 
 :root {
   --fond: #0d1014;
@@ -15,6 +15,7 @@
   --or-fond: rgba(201, 162, 39, 0.12);
   --sur-or: #14100a;
   --tiede: #d69a3c;
+  --rabat: #efe9dc;
   --succes: #47a583;
   --succes-fond: rgba(71, 165, 131, 0.14);
   --alerte: #d97362;
@@ -49,6 +50,7 @@ html[data-theme="papier"] {
   --or-fond: rgba(125, 100, 18, 0.08);
   --sur-or: #fdfbf6;
   --tiede: #8c5612;
+  --rabat: #2b2f36;
   --succes: #256a51;
   --succes-fond: rgba(37, 106, 81, 0.1);
   --alerte: #a8412c;
@@ -476,3 +478,61 @@ textarea.champ:focus { border-color: var(--or); outline: none; }
   .barre, .entete, .maj { display: none; }
   body { background: #fff; color: #000; padding: 0; }
 }
+
+/* --- Marque ------------------------------------------------------------- */
+.marque-logo { display: inline-flex; }
+.logo { display: block; }
+.logo-anneau { stroke: var(--or); }
+.logo-pan { fill: var(--rabat); }
+.logo-eclair { fill: var(--or); stroke: var(--fond-haut); }
+.marque:hover .logo-eclair { fill: var(--or-clair); }
+
+/* --- Récompenses -------------------------------------------------------- */
+/* Une série qui se termine bien doit se voir. Le bandeau reste sobre : de l'or, une
+   ligne, jamais plus de trois. */
+.recompense {
+  display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px;
+  width: fit-content; max-width: 100%; margin: 16px auto 0; padding: 9px 16px; border-radius: 999px;
+  background: var(--or-fond); border: 1px solid color-mix(in srgb, var(--or) 28%, transparent);
+}
+.recompense.eclat { border-color: color-mix(in srgb, var(--or) 62%, transparent); }
+.recompense-pts {
+  font-family: "DM Mono", ui-monospace, monospace; font-size: 14px; font-weight: 500;
+  color: var(--or); letter-spacing: -0.01em;
+}
+.recompense-ligne { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--doux); }
+.recompense-ligne i { font-style: normal; color: var(--or); }
+.recompense-ligne.fort { color: var(--texte); font-weight: 600; }
+.recompense-ligne.fort i { font-size: 15px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .recompense.eclat { animation: recompense-entree .5s ease-out both; }
+}
+@keyframes recompense-entree {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Nappe des éclats. Elle ne capte aucun clic et disparaît dès la fin de l'animation. */
+.celebration {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 60;
+}
+
+/* --- Premier lancement -------------------------------------------------- */
+.accueil-debut .rang { font-size: 20px; }
+.accueil-debut .sous-titre { margin: 6px 0 4px; }
+.accueil-debut .actions { margin-top: 4px; }
+.bloc-part.neuf { color: var(--tres-doux); font-family: Inter, system-ui, sans-serif; font-size: 12px; letter-spacing: 0.01em; }
+
+/* Une ligne de résultat qui renvoie vers sa fiche doit se comporter comme un lien. */
+/* Une question manquée renvoie vers sa fiche : la ligne doit se lire comme un lien. */
+.lien-ligne {
+  text-decoration: none; color: inherit; border-radius: var(--r-s);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  padding: 9px 10px; margin: 0 -10px;
+}
+.lien-ligne:hover { background: var(--carte-2); }
+.lien-ligne .nom { color: var(--texte); }
+.lien-ligne .val { font-family: Inter, system-ui, sans-serif; font-size: 12.5px; color: var(--or); }
+.lien-ligne .val::after { content: " →"; }

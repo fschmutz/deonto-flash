@@ -5,6 +5,7 @@ import * as S from './store.js';
 import { NOTE, apercu, libelleIntervalle, noter } from './fsrs.js';
 import { NEUVES_PAR_SESSION } from './store.js';
 import { h, melanger, vide, court } from './ui.js';
+import { bandeauRecompense, celebrer } from './celebration.js';
 
 const LIBELLES = [
   { note: NOTE.ENCORE, nom: 'Encore', classe: 'n1' },
@@ -54,6 +55,7 @@ export function vueFiches(filtre) {
   }
 
   const totalDepart = file.length;
+  const jalonsDepart = S.capturerJalons();
   let index = 0;
   let revelee = false;
   let justes = 0;
@@ -68,7 +70,15 @@ export function vueFiches(filtre) {
 
   function rendre() {
     if (index >= file.length) {
-      contenu.replaceChildren(ecranFin(totalDepart, justes, cible));
+      const jalons = S.jalonsDepuis(jalonsDepart);
+      const fin = ecranFin(totalDepart, justes, cible, jalons);
+      contenu.replaceChildren(fin);
+      // Les eclats partent du centre de la carte : elle doit deja etre dans le document,
+      // sinon son rectangle est vide et la gerbe jaillit du coin de l'ecran.
+      const part = totalDepart ? justes / totalDepart : 0;
+      if (jalons.rang || jalons.sceaux.length) celebrer('sceau', fin);
+      else if (part >= 0.85) celebrer('franc', fin);
+      else celebrer('discret', fin);
       return;
     }
     const carte = file[index];
@@ -173,9 +183,9 @@ function ecranVide(cible) {
   );
 }
 
-function ecranFin(total, justes, cible) {
+function ecranFin(total, justes, cible, jalons = { points: 0, sceaux: [] }) {
   const part = total ? justes / total : 0;
-  return h(
+  const bloc = h(
     'div',
     { class: 'resultat carte' },
     h('div', { class: `grosse-note ${part >= 0.7 ? 'ok' : 'ko'}`, text: `${justes}/${total}` }),
@@ -188,6 +198,7 @@ function ecranFin(total, justes, cible) {
             ? 'Correct. Les cartes ratées reviendront vite.'
             : 'À reprendre : les cartes ratées reviennent dans dix minutes.'
     }),
+    bandeauRecompense(jalons),
     h(
       'div',
       { class: 'actions' },
@@ -195,4 +206,5 @@ function ecranFin(total, justes, cible) {
       h('a', { class: 'btn', href: '#/', text: 'Accueil' })
     )
   );
+  return bloc;
 }
