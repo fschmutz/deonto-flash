@@ -1,0 +1,12 @@
+{
+  "name": "deonto-flash",
+  "version": "2026.8.28",
+  "private": true,
+  "type": "module",
+  "description": "Entraînement à l'oral de déontologie de la profession d'avocat. Application statique, sans dépendance.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "serve": "python3 -m http.server 8080"
+  }
+}
