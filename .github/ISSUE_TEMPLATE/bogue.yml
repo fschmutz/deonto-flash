@@ -1,0 +1,22 @@
+name: Bogue
+description: Un écran ne se comporte pas comme prévu
+labels: ["bogue"]
+body:
+  - type: textarea
+    id: quoi
+    attributes:
+      label: Ce qui se passe
+    validations:
+      required: true
+  - type: textarea
+    id: reproduire
+    attributes:
+      label: Comment le reproduire
+      placeholder: "1. Ouvrir…\n2. Cliquer…\n3. Observer…"
+    validations:
+      required: true
+  - type: input
+    id: contexte
+    attributes:
+      label: Navigateur et appareil
+      placeholder: "Safari 18, iPhone 15"

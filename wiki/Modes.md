@@ -1,0 +1,44 @@
+# Les quatre modes
+
+## Simulateur d’oral
+
+Le format réel. Un sujet est tiré au sort — aucune préparation, comme le jour J — puis trente
+minutes s’écoulent en trois phases :
+
+| Phase | Durée | Ce qu’on attend de vous |
+| --- | --- | --- |
+| Annonce | 0–2 min | Situer le sujet, sa définition, ses textes, **annoncer le plan à voix haute** |
+| Exposé | 2–15 min | Dérouler le plan, citer et dater, illustrer, sans rien lire |
+| Discussion | 15–30 min | Répondre aux questions du jury, révélées une à une |
+
+À la fin, une grille de cinq critères notés de 0 à 4 : annonce et tenue du plan, maîtrise des
+textes, exactitude juridique, réponses aux questions, expression et gestion du temps. Total
+sur 20, barre à 12.
+
+**Conseil d’usage** : parlez à voix haute du début à la fin, debout si possible, sans notes.
+Un oral fait en pensée ne prépare à rien.
+
+## Fiches
+
+Révision espacée par [FSRS‑6](Revision-espacee). Une question, votre réponse à voix haute,
+puis la réponse et sa source. Vous vous notez : Encore, Difficile, Bien, Facile. C’est cette
+note qui fixe la date de retour.
+
+Raccourcis clavier : `espace` pour révéler, `1` à `4` pour noter.
+
+## Plan express
+
+Quatre‑vingt‑dix secondes pour produire un plan annonçable sur un sujet tiré au sort : une
+accroche, deux parties, deux ou trois idées par partie. Puis comparaison avec un plan modèle.
+
+C’est l’exercice le plus rentable en temps court : le jury juge la structure dans les deux
+premières minutes.
+
+## QCM et cas pratiques
+
+Dix questions, trente secondes chacune, sur ce qui ne s’improvise pas : délais, seuils,
+quorums, majorités. Les options sont mélangées à chaque affichage — la position d’une bonne
+réponse n’est jamais un indice.
+
+Les cas pratiques présentent une situation à qualifier. Formulez l’analyse à voix haute —
+textes applicables, qualification, conséquence, conduite à tenir — avant d’ouvrir la réponse.

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Comment ça marche
+    url: https://github.com/fschmutz/deonto-flash/wiki
+    about: Le wiki décrit l'algorithme de révision, les modes et la note blanche.

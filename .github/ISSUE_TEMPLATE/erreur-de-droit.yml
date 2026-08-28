@@ -1,0 +1,30 @@
+name: Erreur de droit
+description: Une fiche, un QCM ou un plan contient une inexactitude juridique
+labels: ["droit"]
+body:
+  - type: input
+    id: sujet
+    attributes:
+      label: Sujet concerné
+      placeholder: "Le secret professionnel"
+    validations:
+      required: true
+  - type: textarea
+    id: actuel
+    attributes:
+      label: Ce qui est écrit
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Ce qui devrait être écrit
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Texte applicable
+      description: Loi, décret, article du RIN, décision — avec sa référence précise. Sans cela, la correction ne peut pas être tranchée.
+    validations:
+      required: true
