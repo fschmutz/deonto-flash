@@ -25,7 +25,7 @@ export const STRUCTURES = [
         pts: [
           'Distinction fondamentale : les structures de moyens facilitent l’activité de leurs membres, elles n’exercent pas la profession. Chacun exerce à titre individuel et conserve sa clientèle.',
           'Cabinets groupés : simple convention de partage de locaux et de services communs, sans personnalité morale. Les règles sur les conflits d’intérêts s’appliquent au groupe entier ; le secret n’est pas partagé, ce qui impose des mesures de cloisonnement. Agrément préalable des locaux par le conseil de l’ordre.',
-          'Société civile de moyens : personnalité morale, affectio societatis, mise en commun des seuls moyens — locaux, bail, matériel, personnel — et non de l’industrie. L’associé est indéfiniment et conjointement responsable des dettes sociales de gestion.',
+          'Société civile de moyens : personnalité morale, affectio societatis, mise en commun des seuls moyens (locaux, bail, matériel, personnel) et non de l’industrie. L’associé est indéfiniment et conjointement responsable des dettes sociales de gestion.',
           'Groupement d’intérêt économique : personnalité morale, activité auxiliaire de celle de ses membres, sans réaliser de bénéfice pour lui‑même. Réseaux pluridisciplinaires et conventions de groupement transnational : partenariats non structurels, soumis à déclaration.'
         ]
       }
@@ -64,7 +64,7 @@ export const STRUCTURES = [
     ],
     cas: {
       e: 'Trois avocats installés dans les mêmes locaux partagent une salle d’attente, un secrétariat et une armoire d’archives. Chacun exerce à titre individuel. L’un d’eux est saisi contre un client d’un autre. Que faut‑il vérifier ?',
-      r: 'Deux séries de règles. Sur le conflit d’intérêts : dans une structure de moyens comme dans un cabinet groupé, l’interdiction s’applique dès lors qu’il existe un risque de violation du secret professionnel, cette présomption étant simple. Le partage d’une salle d’attente, d’un secrétariat et surtout d’archives communes rend le risque manifeste : le conflit sera retenu, et l’avocat saisi doit se déporter, à moins de démontrer un cloisonnement effectif — archives séparées et fermées, secrétariat distinct, poste et messagerie individuels. Sur l’organisation elle‑même : ces trois éléments partagés sont précisément ceux que le RIN signale comme incompatibles avec le secret. La régularisation doit donc être structurelle et non seulement ponctuelle. Il faut enfin rappeler que le cabinet groupé n’est pas une association : les avocats ne peuvent ni partager leurs honoraires ni se remplacer habituellement, faute de quoi la structure serait requalifiée.'
+      r: 'Deux séries de règles. Sur le conflit d’intérêts : dans une structure de moyens comme dans un cabinet groupé, l’interdiction s’applique dès lors qu’il existe un risque de violation du secret professionnel, cette présomption étant simple. Le partage d’une salle d’attente, d’un secrétariat et surtout d’archives communes rend le risque manifeste : le conflit sera retenu, et l’avocat saisi doit se déporter, à moins de démontrer un cloisonnement effectif, archives séparées et fermées, secrétariat distinct, poste et messagerie individuels. Sur l’organisation elle‑même : ces trois éléments partagés sont précisément ceux que le RIN signale comme incompatibles avec le secret. La régularisation doit donc être structurelle et non seulement ponctuelle. Il faut enfin rappeler que le cabinet groupé n’est pas une association : les avocats ne peuvent ni partager leurs honoraires ni se remplacer habituellement, faute de quoi la structure serait requalifiée.'
     }
   },
 
@@ -73,14 +73,14 @@ export const STRUCTURES = [
     titre: 'Statut de l’avocat collaborateur libéral ou salarié',
     sources: ['L. 31 déc. 1971, art. 7', 'RIN art. 14', 'Convention collective nationale des cabinets d’avocats du 17 févr. 1995'],
     principes: ['indépendance', 'conscience', 'délicatesse', 'secret professionnel'],
-    accroche: 'La collaboration est la porte d’entrée de la profession : environ trente pour cent des avocats sont collaborateurs libéraux, trois pour cent salariés. Deux statuts, une même exigence — l’indépendance intellectuelle. Ce qui les sépare tient à deux choses : la clientèle personnelle, et la nature du lien.',
+    accroche: 'La collaboration est la porte d’entrée de la profession : environ trente pour cent des avocats sont collaborateurs libéraux, trois pour cent salariés. Deux statuts, une même exigence : l’indépendance intellectuelle. Ce qui les sépare tient à deux choses : la clientèle personnelle, et la nature du lien.',
     plan: [
       {
         t: 'I. Deux statuts, une frontière : la clientèle personnelle',
         pts: [
           'Collaboration libérale : mode d’exercice exclusif de tout lien de subordination, par lequel l’avocat consacre une partie de son activité au cabinet d’un ou plusieurs confrères. Liberté d’organisation temporelle et matérielle. Faculté de constituer une clientèle personnelle : le cabinet met à disposition, dans des conditions normales d’utilisation, les moyens matériels nécessaires, et ne peut demander aucune contribution financière au titre du traitement de cette clientèle pendant les cinq premières années d’exercice.',
           'Collaboration salariée : lien de subordination limité à la détermination des conditions de travail, ce qui préserve le caractère libéral et indépendant. Interdiction de constituer une clientèle personnelle pendant l’exécution du contrat, hors missions d’aide juridictionnelle et commissions d’office. Le RIN lui reconnaît cette faculté en dehors de l’exécution du contrat, mais la cour d’appel de Paris a jugé cette disposition illégale en 2023. Régie par le droit du travail et la convention collective nationale du 17 février 1995.',
-          'Formalisme commun : contrat écrit, mentions obligatoires — respect du secret et de l’indépendance, clause de conscience, droit à la déconnexion, durée, rémunération, remboursement de frais, maladie et parentalité. Transmission au conseil de l’ordre dans les quinze jours.',
+          'Formalisme commun : contrat écrit, mentions obligatoires (respect du secret et de l’indépendance, clause de conscience, droit à la déconnexion, durée, rémunération, remboursement de frais, maladie et parentalité). Transmission au conseil de l’ordre dans les quinze jours.',
           'Clauses interdites : atteinte à l’indépendance ou aux règles déontologiques, renonciation anticipée aux clauses obligatoires, limitation de la liberté d’établissement ultérieur ; pour le libéral, participation aux frais de développement de la clientèle pendant cinq ans et limitation des obligations d’aide juridictionnelle.'
         ]
       },
@@ -144,7 +144,7 @@ export const STRUCTURES = [
       {
         t: 'I. Le cadre structurel et le statut de l’associé',
         pts: [
-          'L’associé peut l’être d’une structure d’exercice — SCP, SEL, société de droit commun, SPE, association ou société en participation — ou d’une structure support qui n’exerce pas la profession, comme une SPFPL, une SCM ou un GIE.',
+          'L’associé peut l’être d’une structure d’exercice (SCP, SEL, société de droit commun, SPE, association ou société en participation) ou d’une structure support qui n’exerce pas la profession, comme une SPFPL, une SCM ou un GIE.',
           'Règles de détention du capital selon la forme : tous associés avocats en exercice et tous gérants dans la SCP ; capital ouvert aux professionnels de la SEL, aux professions juridiques et judiciaires et aux SPFPL dans la SEL ; au moins un associé de chaque profession dans la SPE ; au moins un avocat dans les sociétés de droit commun.',
           'Responsabilité civile professionnelle : chaque associé répond sur l’ensemble de son patrimoine des actes qu’il accomplit, la société étant solidairement responsable. Dans une association, chacun est tenu des actes des autres à proportion de ses droits, sauf AARPI publiée.',
           'Dettes sociales : responsabilité conjointe mais indéfinie en SCP, limitée aux apports en SEL et sociétés de droit commun, inexistante en association faute de personnalité morale.'
@@ -188,7 +188,7 @@ export const STRUCTURES = [
       { q: 'La constitution devant le juge se fait :', o: ['au nom de la société', 'au nom personnel de l’avocat', 'au nom du gérant'], b: 1, e: 'La société postule par le ministère d’un avocat, la constitution restant personnelle.' }
     ],
     jury: [
-      { q: 'Peut‑on être associé sans exercer dans la structure ?', r: 'Oui, et c’est une source fréquente de confusion. La qualité d’associé résulte de la détention de parts ; elle n’implique ni la gérance ni l’exercice. Un avocat peut être associé d’une SPFPL, qui est une holding et non une structure d’exercice, ou détenir des parts sans y exercer, sous réserve des règles propres à chaque forme — la SCP exigeant que tous les associés soient des avocats en exercice.' },
+      { q: 'Peut‑on être associé sans exercer dans la structure ?', r: 'Oui, et c’est une source fréquente de confusion. La qualité d’associé résulte de la détention de parts ; elle n’implique ni la gérance ni l’exercice. Un avocat peut être associé d’une SPFPL, qui est une holding et non une structure d’exercice, ou détenir des parts sans y exercer, sous réserve des règles propres à chaque forme : la SCP exigeant que tous les associés soient des avocats en exercice.' },
       { q: 'Que se passe‑t‑il quand un associé part avec ses clients ?', r: 'Rien d’illicite en soi : la clientèle n’est pas la propriété du cabinet et le client conserve le libre choix de son conseil, principe d’ordre public. Est fautif ce qui l’entoure : brutalité du départ désorganisant le cabinet, débauchage de collaborateurs, dénigrement. En cas de cession de clientèle, une obligation de garantie existe même sans stipulation, interdisant au cédant de démarcher la clientèle cédée, et elle s’impose à toute la structure qu’il rejoint.' },
       { q: 'Comment se rémunère un associé ?', r: 'La notion de bénéfice est floue en cabinet d’avocats, car elle mêle le fruit de l’activité professionnelle et la rémunération du capital. Quatre modèles : égalitaire dans les petites structures ; lock‑step, qui répartit à égalité entre associés de même ancienneté ; à la performance, individuelle et collective ; ou mixte. Un système fondé sur la seule facturation individuelle fragilise le collectif, en décourageant le partage de dossiers, la formation et l’apport à d’autres associés.' },
       { q: 'Une clause dissuadant le retrait est‑elle valable ?', r: 'Le principe est la liberté contractuelle entre associés : renonciation aux dividendes de l’exercice en cours, valorisation différenciée selon que le départ est amiable ou non, non‑sollicitation des clients, non‑débauchage, participation aux frais généraux pendant une durée limitée. La limite est double et d’ordre public : la clause ne peut porter atteinte à la liberté de l’avocat de se retirer pour s’établir ailleurs, ni au libre choix du client. L’appréciation est de proportionnalité.' },
@@ -205,13 +205,13 @@ export const STRUCTURES = [
     titre: 'Les structures juridiques d’exercice de la profession d’avocat',
     sources: ['L. 31 déc. 1971, art. 7 et 8', 'Ord. n° 2023‑77 du 8 févr. 2023', 'D. 27 nov. 1991', 'RIN art. 17'],
     principes: ['indépendance', 'secret professionnel'],
-    accroche: 'L’exercice collectif n’est ouvert à la profession que depuis le milieu du vingtième siècle : association en 1954, SCP en 1966, SEL en 1990, sociétés de droit commun en 2015. L’ordonnance du 8 février 2023, entrée en vigueur le 1er septembre 2024, a refondu l’ensemble — davantage sur la forme que sur le fond.',
+    accroche: 'L’exercice collectif n’est ouvert à la profession que depuis le milieu du vingtième siècle : association en 1954, SCP en 1966, SEL en 1990, sociétés de droit commun en 2015. L’ordonnance du 8 février 2023, entrée en vigueur le 1er septembre 2024, a refondu l’ensemble : davantage sur la forme que sur le fond.',
     plan: [
       {
         t: 'I. Les structures dotées de la personnalité morale',
         pts: [
           'Société civile professionnelle : structure fermée, au moins deux associés avocats personnes physiques, tous gérants sauf clause contraire. Seule la société exerce, par l’intermédiaire de ses membres. Immatriculation au registre du commerce sous condition suspensive de l’inscription au tableau. Responsabilité conjointe et indéfinie pour les dettes sociales, imposition à l’impôt sur le revenu.',
-          'Société d’exercice libéral : objet civil, forme commerciale, quatre variantes — SELARL, SELAS, SELAFA, SELCA — dont deux unipersonnelles. Plus de la moitié du capital et des droits de vote détenue par les professionnels exerçant en son sein ou par des membres des professions juridiques et judiciaires ou des SPFPL. Imposition à l’impôt sur les sociétés, droit de retrait ouvert depuis 2024.',
+          'Société d’exercice libéral : objet civil, forme commerciale, quatre variantes (SELARL, SELAS, SELAFA, SELCA) dont deux unipersonnelles. Plus de la moitié du capital et des droits de vote détenue par les professionnels exerçant en son sein ou par des membres des professions juridiques et judiciaires ou des SPFPL. Imposition à l’impôt sur les sociétés, droit de retrait ouvert depuis 2024.',
           'Sociétés de droit commun, ouvertes depuis 2015 : SARL, SA, SAS, à l’exclusion de toute forme conférant la qualité de commerçant. Depuis l’ordonnance de 2023, elles sont soumises aux dispositions des SEL, ce qui réduit l’intérêt du choix.',
           'Formalités communes : statuts écrits transmis au bâtonnier, demande d’inscription présentée collectivement, décision du conseil de l’ordre dans les deux mois, trois si les associés relèvent de barreaux différents.'
         ]
@@ -280,7 +280,7 @@ export const STRUCTURES = [
           'Collaboration interprofessionnelle conventionnelle, encadrée par l’article 18 du RIN et issue de la charte de 2006 conclue avec les experts‑comptables et le notariat. Principes : confraternité et courtoisie sous réserve de réciprocité, absence de critique des prestations de l’autre sans recueillir ses observations.',
           'Indépendance : l’avocat ne peut être subordonné à un autre professionnel dans l’exécution de sa mission, ni intervenir là où celui‑ci dispose d’une compétence exclusive.',
           'Secret professionnel : il ne s’atténue pas par la collaboration. Seules peuvent être échangées les informations recueillies dans le cadre de la mission commune et nécessaires à son exécution. Accord de confidentialité avec le professionnel non tenu au secret.',
-          'Réseau pluridisciplinaire : organisation durable, formelle ou non, supposant un intérêt économique commun, présumé par des indices — logo, dénomination, clientèle commune, documents présentant le groupe. Déclaration obligatoire à l’Ordre, qui dispose de deux mois pour observations ; les conflits d’intérêts s’apprécient à l’échelle du réseau.'
+          'Réseau pluridisciplinaire : organisation durable, formelle ou non, supposant un intérêt économique commun, présumé par des indices (logo, dénomination, clientèle commune, documents présentant le groupe). Déclaration obligatoire à l’Ordre, qui dispose de deux mois pour observations ; les conflits d’intérêts s’apprécient à l’échelle du réseau.'
         ]
       },
       {

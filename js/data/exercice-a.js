@@ -8,7 +8,7 @@ export const EXERCICE_A = [
     titre: 'Le domicile professionnel',
     sources: ['RIN art. 15', 'D. 27 nov. 1991', 'art. 8 CEDH'],
     principes: ['dignité', 'indépendance', 'secret professionnel', 'honneur'],
-    accroche: 'Le domicile professionnel est le point de rattachement ordinal de l’avocat : il détermine son barreau d’inscription, l’autorité disciplinaire compétente et l’étendue de sa postulation. Derrière une question apparemment matérielle se joue donc l’essentiel — l’unicité du rattachement disciplinaire et la garantie du secret.',
+    accroche: 'Le domicile professionnel est le point de rattachement ordinal de l’avocat : il détermine son barreau d’inscription, l’autorité disciplinaire compétente et l’étendue de sa postulation. Derrière une question apparemment matérielle se joue donc l’essentiel : l’unicité du rattachement disciplinaire et la garantie du secret.',
     plan: [
       {
         t: 'I. Une exigence de rattachement et d’effectivité',
@@ -42,7 +42,7 @@ export const EXERCICE_A = [
     cartes: [
       { q: 'Où doit être fixé le domicile professionnel de l’avocat ?', r: 'Dans le ressort du tribunal judiciaire auprès duquel il est inscrit. Il ne peut être inscrit qu’à un seul tableau.', src: 'RIN art. 15' },
       { q: 'Peut‑on domicilier son cabinet dans les locaux d’une entreprise cliente ?', r: 'Non. Le Conseil d’État a annulé la modification du RIN qui l’autorisait : la dépendance matérielle et fonctionnelle est incompatible avec l’indépendance.', src: 'CE ; RIN art. 15' },
-      { q: 'Le coworking est‑il admis ?', r: 'Oui, après évolution de la jurisprudence, sous réserve que le local soit loué à temps complet, que le secret soit garanti — bureau dédié, ligne propre, transfert de courrier — et que les principes essentiels soient respectés.', src: 'Jurisprudence ; RIN art. 15' },
+      { q: 'Le coworking est‑il admis ?', r: 'Oui, après évolution de la jurisprudence, sous réserve que le local soit loué à temps complet, que le secret soit garanti (bureau dédié, ligne propre, transfert de courrier) et que les principes essentiels soient respectés.', src: 'Jurisprudence ; RIN art. 15' },
       { q: 'Un client peut‑il détenir les clés du cabinet ?', r: 'Non : cela ne permet pas de garantir le secret professionnel et compromet l’indépendance.', src: 'Jurisprudence ordinale' },
       { q: 'Combien de temps peut‑on rester domicilié à son ancien cabinet ?', r: 'Trois mois au maximum, le temps de faire connaître au conseil de l’ordre les nouvelles conditions d’exercice.', src: 'RIN art. 15' },
       { q: 'Deux époux avocats peuvent‑ils partager un cabinet ?', r: 'Non : des cabinets distincts sont exigés, même au domicile conjugal, sauf s’ils exercent en association ou en société civile professionnelle.', src: 'RIN art. 15' },
@@ -63,7 +63,7 @@ export const EXERCICE_A = [
     ],
     cas: {
       e: 'Un avocat installe son cabinet principal dans un centre d’affaires : accueil mutualisé, salle de réunion partagée, courrier réceptionné par l’hôtesse commune, pas de ligne propre. Le conseil de l’ordre peut‑il s’y opposer ?',
-      r: 'Le centre d’affaires n’est pas interdit en soi, la Cour de cassation ayant opéré un revirement en ce sens. Mais l’admission est conditionnée : accueil dédié, bureau dédié respectant la confidentialité, ligne téléphonique propre et transfert de courrier organisé. Ici, trois conditions font défaut — l’accueil est mutualisé, le courrier transite par un tiers non tenu au secret, aucune ligne n’est dédiée. Le conseil de l’ordre peut donc refuser, non parce que la formule serait prohibée, mais parce que les conditions du secret et de l’indépendance ne sont pas réunies. La régularisation est simple : ligne propre, boîte aux lettres personnelle, engagement de confidentialité du prestataire.'
+      r: 'Le centre d’affaires n’est pas interdit en soi, la Cour de cassation ayant opéré un revirement en ce sens. Mais l’admission est conditionnée : accueil dédié, bureau dédié respectant la confidentialité, ligne téléphonique propre et transfert de courrier organisé. Ici, trois conditions font défaut : l’accueil est mutualisé, le courrier transite par un tiers non tenu au secret, aucune ligne n’est dédiée. Le conseil de l’ordre peut donc refuser, non parce que la formule serait prohibée, mais parce que les conditions du secret et de l’indépendance ne sont pas réunies. La régularisation est simple : ligne propre, boîte aux lettres personnelle, engagement de confidentialité du prestataire.'
     }
   },
 
@@ -77,7 +77,7 @@ export const EXERCICE_A = [
       {
         t: 'I. Notion et procédure d’ouverture',
         pts: [
-          'Installation professionnelle permanente, distincte du cabinet principal dont elle est l’extension, répondant aux conditions du domicile professionnel et à un exercice effectif — l’usage retenu étant de s’y rendre au moins deux fois par mois.',
+          'Installation professionnelle permanente, distincte du cabinet principal dont elle est l’extension, répondant aux conditions du domicile professionnel et à un exercice effectif : l’usage retenu étant de s’y rendre au moins deux fois par mois.',
           'Ouverture dans le ressort de son propre barreau : simple déclaration au conseil de l’ordre. Dans le ressort d’un autre barreau : déclaration au barreau d’origine et autorisation du conseil de l’ordre d’accueil, qui statue dans le mois, le silence valant acceptation.',
           'À l’étranger : déclaration au conseil de l’ordre d’origine dans l’Union européenne, autorisation préalable hors Union, avec assurance couvrant les activités à l’étranger.',
           'Régime parisien : un avocat inscrit à Paris, Bobigny, Créteil ou Nanterre ne peut ouvrir de bureau secondaire dans le ressort de l’un de ces tribunaux autre que le sien, en raison de la multipostulation.'
@@ -127,7 +127,7 @@ export const EXERCICE_A = [
     ],
     cas: {
       e: 'Un avocat inscrit à Lyon ouvre un bureau secondaire à Grenoble. Il n’en informe personne, y reçoit sa clientèle et postule devant le tribunal judiciaire de Grenoble. Quelles irrégularités relevez‑vous ?',
-      r: 'Trois. Premièrement, l’absence de déclaration au barreau d’origine et de demande d’autorisation au conseil de l’ordre de Grenoble, obligatoire dès lors que le bureau se situe dans le ressort d’un autre barreau. L’inobservation de ces formalités n’entraîne ni fin de non‑recevoir ni nullité, mais expose à des poursuites disciplinaires. Deuxièmement, la postulation à Grenoble est irrégulière : Lyon et Grenoble relèvent de la même cour d’appel, la postulation y est donc possible — l’irrégularité n’existerait que si le ressort de cour d’appel différait, auquel cas le défaut de capacité invaliderait l’acte. Troisièmement, il n’a acquitté ni cotisation au barreau d’accueil ni étendu son assurance et ses garanties financières aux actes du bureau secondaire, ce dernier point pouvant emporter omission obligatoire du tableau.'
+      r: 'Trois. Premièrement, l’absence de déclaration au barreau d’origine et de demande d’autorisation au conseil de l’ordre de Grenoble, obligatoire dès lors que le bureau se situe dans le ressort d’un autre barreau. L’inobservation de ces formalités n’entraîne ni fin de non‑recevoir ni nullité, mais expose à des poursuites disciplinaires. Deuxièmement, la postulation à Grenoble est irrégulière : Lyon et Grenoble relèvent de la même cour d’appel, la postulation y est donc possible, l’irrégularité n’existerait que si le ressort de cour d’appel différait, auquel cas le défaut de capacité invaliderait l’acte. Troisièmement, il n’a acquitté ni cotisation au barreau d’accueil ni étendu son assurance et ses garanties financières aux actes du bureau secondaire, ce dernier point pouvant emporter omission obligatoire du tableau.'
     }
   },
 
@@ -136,7 +136,7 @@ export const EXERCICE_A = [
     titre: 'Le champ d’activité professionnelle',
     sources: ['RIN art. 6 et 7', 'L. 31 déc. 1971, art. 4, 6 et 54 s.', 'L. 28 mars 2011 (acte d’avocat)'],
     principes: ['compétence', 'indépendance', 'secret professionnel'],
-    accroche: 'L’avocat est défini par la loi comme un acteur de la pratique universelle du droit et le défenseur des droits et libertés. Son champ s’organise autour de trois missions inhérentes — assistance, représentation, maniement de fonds — auxquelles s’ajoute une liste ouverte de missions non inhérentes, accessoires, qui ont profondément élargi le métier.',
+    accroche: 'L’avocat est défini par la loi comme un acteur de la pratique universelle du droit et le défenseur des droits et libertés. Son champ s’organise autour de trois missions inhérentes (assistance, représentation, maniement de fonds) auxquelles s’ajoute une liste ouverte de missions non inhérentes, accessoires, qui ont profondément élargi le métier.',
     plan: [
       {
         t: 'I. Les missions inhérentes à la profession',
@@ -179,16 +179,16 @@ export const EXERCICE_A = [
       { q: 'L’avocat qui signe un acte qu’il n’a pas rédigé en est‑il rédacteur ?', r: 'Oui : apposer sa signature sur un acte non rédigé par lui suffit à lui conférer la qualité de rédacteur, avec les obligations qui s’y attachent.', src: 'RIN art. 7' }
     ],
     qcm: [
-      { q: 'L’acte d’avocat a une force probante :', o: ['supérieure à l’acte authentique', 'supérieure à l’acte sous seing privé ordinaire', 'identique à un courrier simple'], b: 1, e: 'Supérieure au sous seing privé — la contestation passe par l’inscription de faux — mais inférieure à l’acte authentique.' },
+      { q: 'L’acte d’avocat a une force probante :', o: ['supérieure à l’acte authentique', 'supérieure à l’acte sous seing privé ordinaire', 'identique à un courrier simple'], b: 1, e: 'Supérieure au sous seing privé (la contestation passe par l’inscription de faux) mais inférieure à l’acte authentique.' },
       { q: 'Le mandat ad litem est :', o: ['présumé et général', 'écrit à peine de nullité', 'limité aux actes énumérés dans une procuration'], b: 0, e: 'Présomption simple, générale pour les actes de procédure. Mandat spécial écrit requis pour les voies de recours et l’inscription de faux.' },
       { q: 'Le mandataire sportif avocat peut être rémunéré :', o: ['par le club', 'par son seul client, dans la limite de 10 %', 'au forfait sans plafond'], b: 1, e: 'Par son seul client, plafond de 10 % du montant du contrat, tous intervenants confondus.' },
       { q: 'La procédure participative est :', o: ['ouverte à tout tiers', 'un monopole de l’avocat', 'réservée aux notaires'], b: 1, e: 'Les avocats en ont le monopole ; les parties s’engagent à œuvrer conjointement et de bonne foi à la résolution amiable.' }
     ],
     jury: [
       { q: 'Pourquoi l’obligation du rédacteur d’acte est‑elle de résultat ?', r: 'Parce que la rédaction n’est pas soumise à l’aléa judiciaire. L’avocat doit assurer la validité et la pleine efficacité de l’acte au regard du but poursuivi par les parties, accomplir les formalités subséquentes, vérifier les documents et interroger les parties. C’est une obligation de comportement actif. Elle cède si le client, dûment averti par écrit des risques, persiste dans son intention.' },
-      { q: 'Peut‑on exercer une activité totalement étrangère au droit ?', r: 'Oui, sous conditions. L’enseignement, même non juridique — yoga, ski, danse — est admis dès lors qu’il reste accessoire, secondaire et occasionnel, et ne constitue pas l’exercice d’une véritable profession. La ligne de partage est là : une mission accessoire est compatible, une seconde profession ne l’est pas.' },
+      { q: 'Peut‑on exercer une activité totalement étrangère au droit ?', r: 'Oui, sous conditions. L’enseignement, même non juridique (yoga, ski, danse) est admis dès lors qu’il reste accessoire, secondaire et occasionnel, et ne constitue pas l’exercice d’une véritable profession. La ligne de partage est là : une mission accessoire est compatible, une seconde profession ne l’est pas.' },
       { q: 'Quelle est la différence entre consultation juridique et information juridique ?', r: 'La consultation est une prestation intellectuelle personnalisée tendant, sur une question posée, à fournir un avis ou un conseil fondé sur l’application d’une règle de droit en vue d’une décision. L’information est générale et impersonnelle. La distinction est opératoire : sur un plateau de télévision ou en live tweet, l’avocat ne peut donner qu’une information, faute de pouvoir vérifier l’identité de son interlocuteur, prévenir un conflit d’intérêts et garantir le secret.' },
-      { q: 'L’avocat fiduciaire reste‑t‑il un avocat ?', r: 'La qualité de fiduciaire est attachée à celle d’avocat : la perte de l’une emporte celle de l’autre. Mais son régime déroge largement : formation spécifique, assurance additionnelle couvrant la restitution — 5 % de la valeur des immeubles, 20 % des autres biens —, comptabilité, papier à en‑tête et archivage distincts, mention obligatoire de sa qualité, correspondance directe avec Tracfin sans le filtre du bâtonnier, et absence de confidentialité des échanges à l’égard des organes de contrôle.' },
+      { q: 'L’avocat fiduciaire reste‑t‑il un avocat ?', r: 'La qualité de fiduciaire est attachée à celle d’avocat : la perte de l’une emporte celle de l’autre. Mais son régime déroge largement : formation spécifique, assurance additionnelle couvrant la restitution (5 % de la valeur des immeubles, 20 % des autres biens), comptabilité, papier à en‑tête et archivage distincts, mention obligatoire de sa qualité, correspondance directe avec Tracfin sans le filtre du bâtonnier, et absence de confidentialité des échanges à l’égard des organes de contrôle.' },
       { q: 'Le champ d’activité s’est‑il trop élargi ?', r: 'C’est un débat. L’élargissement répond à une demande de service global et à la concurrence d’autres professions. Le garde‑fou tient en trois règles : le caractère accessoire, qui évite la seconde profession ; les incompatibilités, qui écartent l’activité commerciale et la subordination ; et les obligations déclaratives, qui permettent au bâtonnier de contrôler. Le risque résiduel est celui de la dilution de l’identité : l’avocat mandataire en transactions immobilières doit veiller à ne pas se présenter comme intervenant exclusivement dans ce domaine.' }
     ],
     cas: {
@@ -207,7 +207,7 @@ export const EXERCICE_A = [
       {
         t: 'I. Les incompatibilités strictes',
         pts: [
-          'Exclusivité ordinale : on ne peut être fidèle à deux ordres. Sont exclues les autres professions libérales réglementées — médecin, notaire, commissaire de justice, mandataire judiciaire, expert immobilier — sauf texte contraire.',
+          'Exclusivité ordinale : on ne peut être fidèle à deux ordres. Sont exclues les autres professions libérales réglementées (médecin, notaire, commissaire de justice, mandataire judiciaire, expert immobilier) sauf texte contraire.',
           'Prohibition de la subordination : l’avocat ne peut être lié par un contrat de travail, sauf l’exception encadrée du collaborateur salarié. Le fonctionnaire ne peut être avocat pendant l’application de son statut.',
           'Prohibition de l’activité commerciale, appréciée par son objet et non par l’inscription au registre : agent d’affaires, courtier, agent sportif, trader, hôtelier.',
           'Fonctions sociales interdites lorsqu’elles engagent au‑delà des apports : associé en nom collectif, commandité, gérant de SARL ou de société civile, membre du directoire, directeur général de société anonyme.'
@@ -254,7 +254,7 @@ export const EXERCICE_A = [
       { q: 'Un avocat peut‑il être loueur en meublé ?', r: 'Oui, la gestion d’un patrimoine personnel n’est pas une activité commerciale, à la différence de l’activité hôtelière. La ligne est celle de la dérive : la location d’un bien propre relève de la gestion patrimoniale, mais l’organisation d’une véritable exploitation, avec services associés et volume, bascule dans le commercial et devient incompatible.' },
       { q: 'Le collaborateur salarié contredit‑il l’indépendance ?', r: 'Non, parce que le lien de subordination est strictement circonscrit aux conditions de travail. L’avocat salarié conserve son indépendance intellectuelle : il informe son employeur si son argumentation diffère de la sienne, il dispose de la clause de conscience, il ne peut recevoir d’instruction sur le contenu de sa défense. Le contrat est contrôlé par le conseil de l’ordre, et les clauses portant atteinte à l’indépendance sont interdites.' },
       { q: 'Qu’est‑ce que le délit de pantouflage, et concerne‑t‑il l’avocat ?', r: 'C’est la prise illégale d’intérêts commise par un ancien agent public qui rejoint, dans les trois ans de la cessation de ses fonctions, une entreprise privée qu’il surveillait, contrôlait ou avec laquelle il contractait. Trois ans d’emprisonnement et 200 000 euros d’amende, avec peine complémentaire d’interdiction d’exercer l’activité d’avocat. Il ne se confond pas avec l’incapacité partielle de cinq ans prévue par le décret de 1991, qui vise l’interdiction de plaider contre l’administration d’origine.' },
-      { q: 'La loi Macron a‑t‑elle affaibli le principe ?', r: 'Elle l’a assoupli sans le renverser. La commercialisation accessoire suppose trois conditions cumulatives : caractère accessoire, connexité avec la profession, et destination aux clients ou aux confrères — édition juridique, formation, mise à disposition de moyens, legaltech. L’avocat ne peut en tirer l’essentiel de ses revenus, et doit informer le conseil de l’ordre dans les trente jours. Le contrôle demeure, seul le périmètre s’est déplacé.' }
+      { q: 'La loi Macron a‑t‑elle affaibli le principe ?', r: 'Elle l’a assoupli sans le renverser. La commercialisation accessoire suppose trois conditions cumulatives : caractère accessoire, connexité avec la profession, et destination aux clients ou aux confrères, édition juridique, formation, mise à disposition de moyens, legaltech. L’avocat ne peut en tirer l’essentiel de ses revenus, et doit informer le conseil de l’ordre dans les trente jours. Le contrôle demeure, seul le périmètre s’est déplacé.' }
     ],
     cas: {
       e: 'Une avocate est gérante de la SCI familiale qui détient l’appartement de ses parents et le local de son cabinet. Elle envisage par ailleurs de devenir présidente du conseil d’administration d’une société anonyme cliente. Que lui conseillez‑vous ?',
@@ -295,7 +295,7 @@ export const EXERCICE_A = [
       'Lettres d’information : le destinataire doit s’être inscrit lui‑même et pouvoir se désabonner à chaque envoi.',
       'Le port de la robe sur un cliché publicitaire peut être considéré comme un manquement à la dignité, la robe étant réservée à l’exercice des fonctions judiciaires.',
       'Le référencement payant est admis mais ne doit pas devenir un acte de concurrence déloyale : usage de mots‑clés portant atteinte à une marque ou à la notoriété d’un confrère.',
-      'Sanctions : disciplinaires, mais aussi pénales — publicité trompeuse, pratique commerciale déloyale, infractions à la réglementation sur les données personnelles — et administratives, devant la CNIL ou l’Autorité de la concurrence.',
+      'Sanctions : disciplinaires, mais aussi pénales (publicité trompeuse, pratique commerciale déloyale, infractions à la réglementation sur les données personnelles) et administratives, devant la CNIL ou l’Autorité de la concurrence.',
       'L’avocat mandataire en transactions immobilières peut le faire savoir, mais ne peut se présenter comme intervenant exclusivement dans ce domaine.'
     ],
     cartes: [
@@ -322,7 +322,7 @@ export const EXERCICE_A = [
       { q: 'Peut‑on porter la robe sur une photographie de son site ?', r: 'Le CNB considère que le port de la robe sur des clichés publicitaires peut constituer un irrespect du principe de dignité, la robe étant réservée à l’exercice des fonctions judiciaires. La prudence commande de s’en abstenir, et de la réserver aux photographies d’audience ou de manifestations professionnelles.' }
     ],
     cas: {
-      e: 'Un cabinet lance une campagne d’affichage : « Le meilleur cabinet en droit de la famille de la région — 95 % de réussite — première consultation offerte », avec la photographie des associés en robe. Quelles irrégularités ?',
+      e: 'Un cabinet lance une campagne d’affichage : « Le meilleur cabinet en droit de la famille de la région, 95 % de réussite, première consultation offerte », avec la photographie des associés en robe. Quelles irrégularités ?',
       r: 'Quatre. « Le meilleur » est une mention comparative et laudative, interdite par l’article 10.2 et constitutive d’une pratique commerciale déloyale à l’égard des confrères. « 95 % de réussite » est trompeur : le taux n’est ni vérifiable ni signifiant, et la publicité mensongère est prohibée et pénalement sanctionnée. La première consultation offerte est un prix d’appel qui, s’il est pratiqué, impose au moins d’indiquer par loyauté la rémunération applicable au‑delà. Enfin le port de la robe sur un cliché publicitaire est regardé par le CNB comme contraire à la dignité. S’ajoute une faute de procédure si la campagne n’a pas été communiquée sans délai au conseil de l’ordre. La régularisation consisterait en une communication factuelle : identité, barreau, structure, spécialisation ou trois domaines dominants au plus, modalités de détermination des honoraires.'
     }
   },
@@ -337,10 +337,10 @@ export const EXERCICE_A = [
       {
         t: 'I. Le contenu de l’obligation',
         pts: [
-          'Vingt heures par année civile, ou quarante heures sur deux années consécutives par lissage. Calcul au prorata temporis en cas de prestation de serment en cours d’année ou de motif légitime — maladie, parentalité, omission.',
+          'Vingt heures par année civile, ou quarante heures sur deux années consécutives par lissage. Calcul au prorata temporis en cas de prestation de serment en cours d’année ou de motif légitime : maladie, parentalité, omission.',
           'Jeunes avocats : durant les deux premières années, dix heures par an consacrées à la déontologie et au statut professionnel, et dix heures étalées sur deux ans à la gestion de cabinet. Depuis 2025, accompagnement par un avocat référent désigné par le conseil de l’ordre.',
           'Spécialistes : la moitié du temps consacré à la spécialisation, soit dix heures par an et par mention, sans lissage possible.',
-          'Activités éligibles : formations juridiques ou professionnelles, colloques et conférences, enseignement — une heure dispensée valant quatre heures reçues, plafonnées à douze heures sur deux ans en cas de duplication —, publication de travaux juridiques, dix mille signes valant trois heures.'
+          'Activités éligibles : formations juridiques ou professionnelles, colloques et conférences, enseignement (une heure dispensée valant quatre heures reçues, plafonnées à douze heures sur deux ans en cas de duplication), publication de travaux juridiques, dix mille signes valant trois heures.'
         ]
       },
       {
@@ -382,9 +382,9 @@ export const EXERCICE_A = [
     ],
     jury: [
       { q: 'La formation continue est‑elle seulement une obligation ?', r: 'Non, c’est aussi un droit, particulièrement pour le collaborateur. Le RIN impose au cabinet de lui laisser le temps de se former et de respecter son libre choix de formations ; le collaborateur libéral informe le cabinet quinze jours avant une formation externe. Le cabinet doit en outre lui confier, dans la mesure du possible, des dossiers en rapport avec la spécialisation qu’il recherche.' },
-      { q: 'La sanction du défaut de formation est‑elle effective ?', r: 'Elle a longtemps été théorique, la sanction disciplinaire étant rarement prononcée pour ce seul motif. Le décret de 2023 a ajouté un cas d’omission facultative, avec une procédure spécifique — l’avocat est appelé quatre mois avant l’audience en matière de formation continue, contre quinze jours en principe. La sanction la plus efficace reste, pour le spécialiste, la perte de l’usage de sa mention, qui a un effet économique immédiat.' },
+      { q: 'La sanction du défaut de formation est‑elle effective ?', r: 'Elle a longtemps été théorique, la sanction disciplinaire étant rarement prononcée pour ce seul motif. Le décret de 2023 a ajouté un cas d’omission facultative, avec une procédure spécifique : l’avocat est appelé quatre mois avant l’audience en matière de formation continue, contre quinze jours en principe. La sanction la plus efficace reste, pour le spécialiste, la perte de l’usage de sa mention, qui a un effet économique immédiat.' },
       { q: 'Un cabinet peut‑il former lui‑même ses avocats ?', r: 'Oui, au titre des activités accessoires ouvertes par la loi Macron. Le cabinet doit désigner un correspondant formations auprès du bâtonnier, qui conserve feuilles de présence, supports et évaluations, et soumettre annuellement au centre régional de son siège le contenu des actions dispensées. Le cahier des charges s’applique intégralement.' },
-      { q: 'Quel lien entre formation continue et devoir de compétence ?', r: 'La formation continue est l’expression procédurale du devoir de compétence, qui impose de refuser un dossier dont on ne maîtrise pas la matière et d’entretenir ses connaissances. Le lien n’est pas seulement symbolique : la responsabilité civile de l’avocat s’apprécie au jour de son intervention, au regard du droit positif et de l’évolution jurisprudentielle qu’il devait connaître — et parfois anticiper lorsqu’un revirement avait des chances sérieuses de prospérer.' },
+      { q: 'Quel lien entre formation continue et devoir de compétence ?', r: 'La formation continue est l’expression procédurale du devoir de compétence, qui impose de refuser un dossier dont on ne maîtrise pas la matière et d’entretenir ses connaissances. Le lien n’est pas seulement symbolique : la responsabilité civile de l’avocat s’apprécie au jour de son intervention, au regard du droit positif et de l’évolution jurisprudentielle qu’il devait connaître, et parfois anticiper lorsqu’un revirement avait des chances sérieuses de prospérer.' },
       { q: 'Comment est financée la formation ?', r: 'Par le Fonds interprofessionnel de formation des professions libérales, alimenté par une contribution recouvrée avec les cotisations URSSAF, qui prend en charge les formations d’au moins trois heures dispensées par un organisme certifié Qualiopi ; et par le compte personnel de formation, auquel l’avocat contribue chaque année. Le CNB détermine par ailleurs une cotisation dédiée à la formation professionnelle, reversée aux centres régionaux.' }
     ],
     cas: {

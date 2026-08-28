@@ -14,7 +14,7 @@ export const REGLES = [
       {
         t: 'I. Un socle unique, trois cercles concentriques',
         pts: [
-          'Le serment (art. 3 L. 1971) : dignité, conscience, indépendance, probité, humanité — cinq principes prononcés devant la cour d’appel.',
+          'Le serment (art. 3 L. 1971) : dignité, conscience, indépendance, probité, humanité. Cinq principes prononcés devant la cour d’appel.',
           'Huit principes de l’exercice professionnel : honneur, loyauté, égalité et non‑discrimination, désintéressement, confraternité, délicatesse, modération, courtoisie.',
           'Quatre principes tournés vers le client : compétence, dévouement, diligence, prudence.',
           'Soit dix‑sept principes à l’article 1.3 du RIN, repris par le code de déontologie de 2023 à droit constant.'
@@ -33,7 +33,7 @@ export const REGLES = [
     cles: [
       'Dignité = attitude générale ; modération = paroles et écrits ; délicatesse = actes. Ne pas confondre les trois à l’oral, le jury écoute cette distinction.',
       'Probité = la personne de l’avocat ; honneur = la profession et le barreau. Une atteinte grave à la probité emporte presque toujours atteinte à l’honneur.',
-      'Conscience : trois déclinaisons — conscience professionnelle (sérieux), liberté de conscience (refuser un dossier sans se justifier), clause de conscience (obligatoire dans tout contrat de travail et de collaboration libérale).',
+      'Conscience, trois déclinaisons : conscience professionnelle (sérieux), liberté de conscience (refuser un dossier sans se justifier), clause de conscience (obligatoire dans tout contrat de travail et de collaboration libérale).',
       'Indépendance : fonde les incompatibilités, l’interdiction du pacte de quota litis, la prohibition du partage d’honoraires avec un non‑avocat et l’interdiction du cabinet dans les locaux d’une entreprise cliente.',
       'Désintéressement : faire primer l’intérêt du client sur le sien ; il ne régit pas les relations entre avocats (rétrocession d’honoraires).',
       'Égalité et non‑discrimination : principe ajouté au RIN en 2019, de valeur constitutionnelle, couvrant harcèlement moral et sexuel envers collaborateurs et personnel.',
@@ -82,7 +82,7 @@ export const REGLES = [
         t: 'I. Un secret général, absolu et d’ordre public',
         pts: [
           'Fondements : droits de la défense et procès équitable (art. 6 CEDH), respect de la vie privée et des correspondances (art. 8 CEDH), intérêt privé du client. Le Conseil constitutionnel ne lui reconnaît pas de valeur constitutionnelle.',
-          'Champ matériel : toutes matières, conseil comme défense, tous supports — correspondances, notes, agenda, nom du client, pièces, règlements pécuniaires, relevés CARPA.',
+          'Champ matériel : toutes matières, conseil comme défense, tous supports (correspondances, notes, agenda, nom du client, pièces, règlements pécuniaires, relevés CARPA).',
           'Champ personnel : l’avocat, ses associés, collaborateurs, salariés, élèves‑avocats, et tout prestataire auquel il doit imposer le secret. Partagé dans une structure d’exercice, non partagé dans une structure de moyens.',
           'Nul ne peut en délier l’avocat : ni le client, ni le bâtonnier, ni le conseil de l’ordre. Le client, lui, n’y est pas tenu et peut rendre publiques les informations qu’il détient.'
         ]
@@ -113,7 +113,7 @@ export const REGLES = [
       { q: 'Quelle peine sanctionne la violation du secret professionnel ?', r: 'Un an d’emprisonnement et 15 000 euros d’amende. La plainte doit émaner du procureur de la République ou de l’auteur du secret.', src: 'C. pén. art. 226‑13' },
       { q: 'Qui doit être présent lors d’une perquisition au cabinet d’un avocat ?', r: 'Le bâtonnier ou son délégué, informé préalablement. Seuls lui et le magistrat peuvent prendre connaissance des documents sur place avant saisie.', src: 'CPP art. 56‑1' },
       { q: 'Dans quel délai le JLD statue‑t‑il sur l’opposition du bâtonnier à une saisie ?', r: 'Cinq jours à compter de la réception du procès‑verbal ; les pièces sont placées sous scellé dans l’intervalle. Recours suspensif dans les 24 heures.', src: 'CPP art. 56‑1' },
-      { q: 'Quelles infractions écartent le secret du conseil ?', r: 'Fraude fiscale, terrorisme, corruption, trafic d’influence et blanchiment de ces délits — et seulement pour les pièces établissant que le conseil a servi à les commettre ou les faciliter.', src: 'CPP art. 56‑1‑2' },
+      { q: 'Quelles infractions écartent le secret du conseil ?', r: 'Fraude fiscale, terrorisme, corruption, trafic d’influence et blanchiment de ces délits, et seulement pour les pièces établissant que le conseil a servi à les commettre ou les faciliter.', src: 'CPP art. 56‑1‑2' },
       { q: 'Quelle condition tenant à la peine encourue permet l’écoute de la ligne d’un avocat ?', r: 'Des raisons plausibles de le soupçonner d’avoir participé à une infraction punie d’au moins trois ans d’emprisonnement, avec information du bâtonnier et ordonnance motivée du JLD.', src: 'CPP art. 100 à 100‑7' },
       { q: 'Que peut communiquer l’avocat à l’administration fiscale ?', r: 'L’identité du client, le montant, la date et la forme du versement. Jamais la nature, même sommaire, des prestations fournies.', src: 'LPF ; jurisprudence CE' },
       { q: 'Le secret couvre‑t‑il les propos tenus à un ami qui se trouve être avocat ?', r: 'Non, faute de lien de clientèle. Il couvre en revanche les confidences reçues à raison de la qualité d’avocat, même d’un tiers qui n’est pas client.', src: 'Jurisprudence' },
@@ -151,7 +151,7 @@ export const REGLES = [
           'Double nature : principe directeur du procès (art. 15 et 16 CPC), élément du procès équitable au sens de l’article 6 CEDH, et devoir déontologique de l’article 5 du RIN.',
           'S’impose aux parties, aux avocats et au juge, qui doit le faire observer et ne peut fonder sa décision que sur des éléments débattus.',
           'Devant toutes les juridictions, avec ou sans représentation obligatoire, en procédure écrite comme orale, y compris en matière d’expertise et devant les autorités administratives indépendantes.',
-          'Exceptions : procédures non contradictoires par nature — requête, référé d’heure à heure, mesures conservatoires — où le contradictoire est simplement différé.'
+          'Exceptions : procédures non contradictoires par nature (requête, référé d’heure à heure, mesures conservatoires) où le contradictoire est simplement différé.'
         ]
       },
       {
@@ -271,7 +271,7 @@ export const REGLES = [
     titre: 'Les conflits d’intérêts',
     sources: ['RIN art. 4 et 7', 'Code de déontologie 2023', 'D. 27 nov. 1991'],
     principes: ['indépendance', 'loyauté', 'secret professionnel'],
-    accroche: 'Le conflit d’intérêts est l’angle mort de la relation de confiance : l’avocat qui sert deux intérêts opposés ne sert bien aucun des deux. La règle est donc préventive et non réparatrice — elle impose l’abstention dès le risque, apprécié in concreto au regard de la mission.',
+    accroche: 'Le conflit d’intérêts est l’angle mort de la relation de confiance : l’avocat qui sert deux intérêts opposés ne sert bien aucun des deux. La règle est donc préventive et non réparatrice : elle impose l’abstention dès le risque, apprécié in concreto au regard de la mission.',
     plan: [
       {
         t: 'I. Une interdiction préventive, appréciée in concreto',
@@ -288,7 +288,7 @@ export const REGLES = [
           'Trois hypothèses sans conflit après information et accord des parties (art. 4.1 RIN) : conciliation d’une contrariété d’intérêts, conseil d’une stratégie commune, intervention séparée d’avocats d’une même structure dans une négociation.',
           'Client antérieur : conflit si le secret risque d’être violé ou si la connaissance acquise avantagerait le nouveau client.',
           'Rédacteur d’acte : abstention en cas de conflit ; le rédacteur unique conseil de toutes les parties ne peut agir ni défendre sur la validité, l’exécution ou l’interprétation de l’acte, sauf contestation émanant d’un tiers.',
-          'Conséquences : sanction disciplinaire et responsabilité civile, mais ni nullité de l’acte ni de la procédure — sauf en matière de vente judiciaire. Seul le client peut invoquer le conflit.'
+          'Conséquences : sanction disciplinaire et responsabilité civile, mais ni nullité de l’acte ni de la procédure, sauf en matière de vente judiciaire. Seul le client peut invoquer le conflit.'
         ]
       }
     ],
@@ -343,7 +343,7 @@ export const REGLES = [
         t: 'I. Les obligations de l’avocat dessaisi',
         pts: [
           'Transmission intégrale et sans délai du dossier au successeur, y compris les correspondances confidentielles nécessaires à la connaissance du litige, qui restent couvertes par le secret.',
-          'Aucun droit de rétention, même en cas d’honoraires impayés. Seule exception : les matières à tarif réglementé — saisie immobilière, partage, licitation, sûretés judiciaires.',
+          'Aucun droit de rétention, même en cas d’honoraires impayés. Seule exception : les matières à tarif réglementé (saisie immobilière, partage, licitation, sûretés judiciaires).',
           'Envers le client : informer suffisamment tôt et par écrit, préciser les délais de procédure, rappeler qu’il lui appartient de désigner un nouvel avocat, dégager sa responsabilité pour l’avenir sans mettre en péril ses intérêts.',
           'En représentation obligatoire, il reste constitué jusqu’à son remplacement effectif : il continue de recevoir les actes et doit en informer le client.'
         ]
@@ -388,7 +388,7 @@ export const REGLES = [
       { q: 'Votre nouveau client veut engager la responsabilité de son ancien avocat. Vous le représentez ?', r: 'Pas sans l’accord préalable du bâtonnier, que je sollicite. La règle protège la confraternité sans priver le client de recours : si l’accord est refusé sans motif, le client conserve le droit d’agir avec un autre conseil. Je dois en outre m’abstenir de toute critique du prédécesseur devant le client, ce qui n’empêche pas de l’informer objectivement de ses droits.' },
       { q: 'C’est vous qui souhaitez vous décharger d’un dossier. Comment procédez‑vous ?', r: 'Par écrit, LRAR doublée d’une lettre simple, sans avoir à me justifier, mais suffisamment tôt pour ne pas mettre en péril les intérêts du client. Je précise les délais de procédure en cours, la nécessité de désigner un nouvel avocat, les conséquences à défaut. J’informe le tribunal et l’avocat adverse. En représentation obligatoire, je reste constitué jusqu’à mon remplacement ; à défaut, je saisis le bâtonnier.' },
       { q: 'Devez‑vous transmettre les correspondances confidentielles échangées avec l’avocat adverse ?', r: 'Oui lorsqu’elles sont nécessaires à la connaissance du dossier : le successeur ne peut défendre utilement sans connaître l’état des négociations. Elles demeurent couvertes par la confidentialité entre ses mains et ne pourront être produites. La logique est celle du secret partagé au service de la continuité de la défense.' },
-      { q: 'Sous commission d’office, pouvez‑vous vous décharger librement ?', r: 'Non. L’avocat commis d’office ne peut refuser son ministère ni s’en décharger sans faire approuver ses motifs légitimes — indisponibilité, incompétence, conflit d’intérêts — par le bâtonnier ou par le président de la juridiction qui l’a désigné. Le refus illégitime est sanctionné disciplinairement.' }
+      { q: 'Sous commission d’office, pouvez‑vous vous décharger librement ?', r: 'Non. L’avocat commis d’office ne peut refuser son ministère ni s’en décharger sans faire approuver ses motifs légitimes (indisponibilité, incompétence, conflit d’intérêts) par le bâtonnier ou par le président de la juridiction qui l’a désigné. Le refus illégitime est sanctionné disciplinairement.' }
     ],
     cas: {
       e: 'Vous êtes saisi d’un dossier de divorce. Le client ne mentionne aucun avocat précédent. Trois semaines plus tard, un confrère vous écrit qu’il était constitué et n’a jamais été avisé. Quelles fautes avez‑vous commises ?',
@@ -444,16 +444,16 @@ export const REGLES = [
       { q: 'Qui contrôle le respect des obligations LCB‑FT ?', r: 'Le conseil de l’ordre du barreau d’inscription, en pratique via le bâtonnier, assisté le cas échéant du CNB. Le bâtonnier rend compte une fois par an au procureur général et au président du CNB.', src: 'C. mon. fin. ; D. 1991' }
     ],
     qcm: [
-      { q: 'La déclaration de soupçon est adressée :', o: ['directement à Tracfin', 'au bâtonnier', 'au procureur de la République'], b: 1, e: 'Au bâtonnier, qui transmet à Tracfin dans les huit jours — sauf pour l’avocat fiduciaire.' },
+      { q: 'La déclaration de soupçon est adressée :', o: ['directement à Tracfin', 'au bâtonnier', 'au procureur de la République'], b: 1, e: 'Au bâtonnier, qui transmet à Tracfin dans les huit jours, sauf pour l’avocat fiduciaire.' },
       { q: 'La consultation juridique donne lieu à déclaration :', o: ['jamais', 'toujours', 'en matière fiscale ou si elle est donnée à des fins de blanchiment'], b: 2, e: 'Ce sont les deux exceptions à l’exclusion des consultations.' },
       { q: 'Le blanchiment simple est puni de :', o: ['3 ans et 45 000 €', '5 ans et 375 000 €', '10 ans et 750 000 €'], b: 1, e: '5 ans et 375 000 euros ; 10 ans et 750 000 euros pour le blanchiment aggravé, notamment par l’usage des facilités de la profession.' },
       { q: 'Face à un soupçon, l’avocat doit d’abord :', o: ['déclarer', 'dissuader son client', 'saisir le procureur'], b: 1, e: 'Dissuasion, puis déport si elle échoue, puis déclaration si l’opération entre dans le périmètre légal.' }
     ],
     jury: [
-      { q: 'La déclaration de soupçon fait‑elle de l’avocat un auxiliaire de police ?', r: 'C’est la crainte de la profession, et le droit y répond par deux garde‑fous. D’abord le filtre du bâtonnier, qui apprécie la réalité du soupçon avant transmission — la CARPA, assujettie depuis 2020, passe par le même canal. Ensuite l’exclusion de l’activité juridictionnelle et de la consultation, c’est‑à‑dire du cœur de la mission de défense. Dans l’arrêt Michaud c. France du 6 décembre 2012, la Cour européenne a jugé sur ce fondement que l’ingérence était justifiée et proportionnée.' },
+      { q: 'La déclaration de soupçon fait‑elle de l’avocat un auxiliaire de police ?', r: 'C’est la crainte de la profession, et le droit y répond par deux garde‑fous. D’abord le filtre du bâtonnier, qui apprécie la réalité du soupçon avant transmission : la CARPA, assujettie depuis 2020, passe par le même canal. Ensuite l’exclusion de l’activité juridictionnelle et de la consultation, c’est‑à‑dire du cœur de la mission de défense. Dans l’arrêt Michaud c. France du 6 décembre 2012, la Cour européenne a jugé sur ce fondement que l’ingérence était justifiée et proportionnée.' },
       { q: 'Votre client vous remet 3 000 euros en espèces pour vos honoraires. Que faites‑vous ?', r: 'Le paiement en espèces des honoraires est plafonné à 1 000 euros lorsque le débiteur a son domicile fiscal en France ou agit à titre professionnel. Je refuse donc ce montant et propose un virement. Indépendamment du plafond, le devoir de prudence m’impose de vérifier l’origine des fonds et de refuser tout paiement dont je connais le caractère illicite.' },
       { q: 'Quelle différence entre l’obligation d’abstention et l’obligation de déclaration ?', r: 'L’abstention interdit de réaliser l’opération tant que la déclaration n’est pas faite et que Tracfin ne s’y est pas opposé ; elle joue aussi lorsque l’avocat ne parvient pas à identifier son client ou l’objet de la relation, auquel cas il doit y mettre fin. La déclaration est l’information de Tracfin par le bâtonnier. Les deux se cumulent dans le périmètre de l’article L. 561‑3.' },
-      { q: 'Comment organisez‑vous votre cabinet en pratique ?', r: 'Un plan de vigilance écrit : procédure d’identification et de conservation, classification des risques par type de dossier — faible pour un contrat de travail, élevé pour une vente immobilière, une cession de fonds ou un mandat de représentation fiscale —, dispositif de contrôle interne, désignation d’un responsable dans les structures, formation du personnel, consultation du registre des gels d’avoirs et des bases de personnes sanctionnées.' },
+      { q: 'Comment organisez‑vous votre cabinet en pratique ?', r: 'Un plan de vigilance écrit : procédure d’identification et de conservation, classification des risques par type de dossier (faible pour un contrat de travail, élevé pour une vente immobilière, une cession de fonds ou un mandat de représentation fiscale), dispositif de contrôle interne, désignation d’un responsable dans les structures, formation du personnel, consultation du registre des gels d’avoirs et des bases de personnes sanctionnées.' },
       { q: 'Tracfin s’oppose à une opération. Quel est le mécanisme ?', r: 'L’opposition est notifiée au bâtonnier et reporte l’opération de dix jours. Dans ce délai, le président du tribunal judiciaire peut proroger la mesure ou ordonner le séquestre des fonds. À défaut d’opposition ou de décision dans le délai, l’opération peut être exécutée.' }
     ],
     cas: {

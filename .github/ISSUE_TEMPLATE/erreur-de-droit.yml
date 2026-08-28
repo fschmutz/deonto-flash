@@ -25,6 +25,6 @@ body:
     id: source
     attributes:
       label: Texte applicable
-      description: Loi, décret, article du RIN, décision — avec sa référence précise. Sans cela, la correction ne peut pas être tranchée.
+      description: Loi, décret, article du RIN, décision, avec sa référence précise. Sans cela, la correction ne peut pas être tranchée.
     validations:
       required: true

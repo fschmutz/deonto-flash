@@ -210,3 +210,14 @@ test('les apostrophes sont typographiques dans les textes visibles', () => {
   }
   assert.deepEqual(suspects, [], `apostrophes droites dans : ${suspects.join(', ')}`);
 });
+
+test('aucun tiret cadratin dans les textes visibles', () => {
+  // Regle d'ecriture du projet : la ponctuation francaise se fait aux deux-points,
+  // a la virgule ou aux parentheses. Un tiret cadratin est un anglicisme typographique.
+  const suspects = [];
+  for (const s of SUJETS) {
+    const blob = JSON.stringify({ t: s.titre, a: s.accroche, p: s.plan, c: s.cles, f: s.cartes, q: s.qcm, j: s.jury, k: s.cas });
+    if (blob.includes('—')) suspects.push(s.id);
+  }
+  assert.deepEqual(suspects, [], `tirets cadratins dans : ${suspects.join(', ')}`);
+});
