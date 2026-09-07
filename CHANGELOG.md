@@ -2,6 +2,24 @@
 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 
+## 2026.09.07.2
+
+### Ajouté
+- Enrichissement du corpus : chaque sujet passe à **8 QCM** et **7 questions de jury**
+  (banque ~272 QCM, 238 questions de jury).
+- Fiches : les sujets encore à 8 cartes reçoivent **+2 à +3** fiches sourcées
+  (total ~339 cartes).
+- Second cas pratique (`cas2`) sur les sujets denses : secret professionnel, contradictoire,
+  conflits d’intérêts, LCB‑FT, publicité, infractions et procédure disciplinaires,
+  collaborateur, structures d’exercice, honoraires, CARPA, assurance RCP.
+
+### Modifié
+- Contrôle de thème plus lisible : libellé **Encre** / **Papier** avec icône soleil ou lune,
+  `aria-pressed` et titre explicite (plus seulement ◐).
+- Premier lancement sans préférence enregistrée : thème aligné sur
+  `prefers-color-scheme` (clair → papier, sinon encre) ; le choix reste mémorisé au bascule.
+- Compteurs wiki / README alignés sur la nouvelle banque.
+
 ## 2026.09.07.1
 
 ### Ajouté

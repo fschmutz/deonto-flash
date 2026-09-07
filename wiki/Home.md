@@ -18,5 +18,5 @@ programme publié. L’admission est prononcée à partir de **12/20**.
 
 ## En une phrase
 
-Trente‑quatre sujets, 300 fiches sourcées, un chronomètre de trente minutes et une grille de
+Trente‑quatre sujets, 339 fiches sourcées, un chronomètre de trente minutes et une grille de
 notation : tout ce qu’il faut pour répéter l’épreuve, et rien d’autre.

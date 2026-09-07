@@ -113,8 +113,8 @@ test('chaque sujet est complet', () => {
     }
     assert.ok(s.cles.length >= 6, `${ou} : au moins six points clés`);
     assert.ok(s.cartes.length >= 8, `${ou} : au moins huit fiches`);
-    assert.ok(s.qcm.length >= 3, `${ou} : au moins trois QCM`);
-    assert.ok(s.jury.length >= 5, `${ou} : au moins cinq questions de jury`);
+    assert.ok(s.qcm.length >= 7, `${ou} : au moins sept QCM`);
+    assert.ok(s.jury.length >= 7, `${ou} : au moins sept questions de jury`);
     assert.ok(s.cas && s.cas.e && s.cas.r, `${ou} : cas pratique manquant`);
     assert.ok(s.cas.r.length > 200, `${ou} : analyse du cas trop courte`);
     assert.ok(Array.isArray(s.principes) && s.principes.length >= 1, `${ou} : principes rattachés`);
@@ -181,9 +181,16 @@ test('les questions de jury ont une réponse développée', () => {
 });
 
 test('chaque sujet a un cas pratique et les compteurs sont cohérents', () => {
-  assert.equal(CAS.length, SUJETS.length);
+  assert.ok(CAS.length >= SUJETS.length, 'au moins un cas par sujet');
+  for (const s of SUJETS) {
+    assert.ok(CAS.some((c) => c.sujet === s.id), `cas manquant pour ${s.id}`);
+    if (s.cas2) {
+      assert.ok(s.cas2.e && s.cas2.r && s.cas2.r.length > 200, `cas2 incomplet pour ${s.id}`);
+    }
+  }
   assert.equal(STATS.sujets, SUJETS.length);
   assert.equal(STATS.blocs, BLOCS.length);
+  assert.equal(STATS.cas, CAS.length);
   assert.equal(
     STATS.jury,
     SUJETS.reduce((n, s) => n + s.jury.length, 0)
@@ -205,7 +212,7 @@ test('aucun texte ne contient de caractère de contrôle ni d’espace insécabl
 test('les apostrophes sont typographiques dans les textes visibles', () => {
   const suspects = [];
   for (const s of SUJETS) {
-    const blob = JSON.stringify({ t: s.titre, a: s.accroche, p: s.plan, c: s.cles, f: s.cartes, j: s.jury, k: s.cas });
+    const blob = JSON.stringify({ t: s.titre, a: s.accroche, p: s.plan, c: s.cles, f: s.cartes, j: s.jury, k: s.cas, k2: s.cas2 });
     if (blob.includes("'")) suspects.push(s.id);
   }
   assert.deepEqual(suspects, [], `apostrophes droites dans : ${suspects.join(', ')}`);
@@ -216,7 +223,7 @@ test('aucun tiret cadratin dans les textes visibles', () => {
   // a la virgule ou aux parentheses. Un tiret cadratin est un anglicisme typographique.
   const suspects = [];
   for (const s of SUJETS) {
-    const blob = JSON.stringify({ t: s.titre, a: s.accroche, p: s.plan, c: s.cles, f: s.cartes, q: s.qcm, j: s.jury, k: s.cas });
+    const blob = JSON.stringify({ t: s.titre, a: s.accroche, p: s.plan, c: s.cles, f: s.cartes, q: s.qcm, j: s.jury, k: s.cas, k2: s.cas2 });
     if (blob.includes('—')) suspects.push(s.id);
   }
   assert.deepEqual(suspects, [], `tirets cadratins dans : ${suspects.join(', ')}`);

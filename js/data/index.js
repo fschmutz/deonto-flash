@@ -94,13 +94,28 @@ export const QCM = SUJETS.flatMap((s) =>
   s.qcm.map((q, i) => ({ ...q, id: `${s.id}?${i}`, sujet: s.id, sujetTitre: s.titre, bloc: s.bloc }))
 );
 
-export const CAS = SUJETS.filter((s) => s.cas).map((s) => ({
-  ...s.cas,
-  id: `${s.id}!cas`,
-  sujet: s.id,
-  sujetTitre: s.titre,
-  bloc: s.bloc
-}));
+export const CAS = SUJETS.flatMap((s) => {
+  const out = [];
+  if (s.cas) {
+    out.push({
+      ...s.cas,
+      id: `${s.id}!cas`,
+      sujet: s.id,
+      sujetTitre: s.titre,
+      bloc: s.bloc
+    });
+  }
+  if (s.cas2) {
+    out.push({
+      ...s.cas2,
+      id: `${s.id}!cas2`,
+      sujet: s.id,
+      sujetTitre: s.titre,
+      bloc: s.bloc
+    });
+  }
+  return out;
+});
 
 /**
  * Melange les options d'un QCM. La bonne reponse est majoritairement redigee en deuxieme
