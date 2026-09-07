@@ -2,11 +2,15 @@
 
 import { BLOCS, CAS, QCM, SUJETS, SUJET_PAR_ID, optionsMelangees } from './data/index.js';
 import * as S from './store.js';
-import { auHasard, chronometre, court, h, melanger, mmss, section, vide } from './ui.js';
+import { auHasard, chronometre, court, h, mmss, section, vide } from './ui.js';
 import { bandeauRecompense, celebrer } from './celebration.js';
+import {
+  CHRONOS_LONGS,
+  LONGUEURS_QCM,
+  dureeQuestionMs,
+  tirerSerieQcm
+} from './qcm.js';
 
-const LONGUEUR_QCM = 10;
-const SECONDES_PAR_QUESTION = 30000;
 const DUREE_PLAN = 90 * 1000;
 const LETTRES = ['A', 'B', 'C', 'D'];
 
@@ -27,7 +31,7 @@ export function vueEntrainement() {
         { class: 'mode', href: '#/qcm' },
         taux !== null ? h('span', { class: 'pastille', text: `${Math.round(taux * 100)} %` }) : null,
         h('h3', {}, h('span', { class: 'ico-mode', 'aria-hidden': 'true' }, '◎'), 'QCM chronométré'),
-        h('p', { text: `${LONGUEUR_QCM} questions, trente secondes chacune. Les délais, les seuils, les quorums : ce que le jury vérifie en premier.` })
+        h('p', { text: 'Longueur au choix (10 à 100), tirage priorisant les questions non acquises. Les délais, les seuils, les quorums : ce que le jury vérifie en premier.' })
       ),
       h(
         'a',
@@ -65,8 +69,7 @@ export function vueQcm(filtreBloc) {
   const bloc = filtreBloc ? BLOCS.find((b) => b.id === filtreBloc) : null;
   if (filtreBloc && !bloc) return h('div', { class: 'vue' }, vide('Parcours inconnu.', null, h('a', { class: 'btn', href: '#/qcm', text: 'Tout le programme' })));
 
-  const pool = bloc ? QCM.filter((q) => q.bloc === bloc.id) : QCM;
-  const questions = melanger(pool).slice(0, LONGUEUR_QCM);
+  const poolParcours = bloc ? QCM.filter((q) => q.bloc === bloc.id) : QCM;
   const racine = h('div', { class: 'vue', dataset: { titre: 'QCM' } });
   const contenu = h('div', {});
   racine.append(
@@ -75,14 +78,181 @@ export function vueQcm(filtreBloc) {
     contenu
   );
 
-  const resultats = new Array(questions.length).fill(null);
-  const jalonsDepart = S.capturerJalons();
+  let questions = [];
+  let dureeMs = 30_000;
   let index = 0;
   let arreter = null;
+  const resultats = [];
+  let jalonsDepart = null;
   const nettoyer = () => {
     if (arreter) arreter();
     arreter = null;
   };
+
+  function ecranDepart() {
+    nettoyer();
+    let longueur = S.longueurQcmChoisie();
+    let chrono = S.chronoQcmChoisi();
+    const zoneChoix = h('div', {});
+    const zoneActions = h('div', { class: 'actions' });
+
+    function rafraichir() {
+      const pool = poolParcours;
+      const disponible = pool.length;
+      const effective = Math.min(longueur, disponible);
+      const manque = bloc && longueur > disponible;
+      const boutonsLongueur = LONGUEURS_QCM.map((n) =>
+        h(
+          'button',
+          {
+            type: 'button',
+            class: `btn choix-qcm${n === longueur ? ' actif' : ''}`,
+            onclick: () => {
+              longueur = S.enregistrerLongueurQcm(n);
+              rafraichir();
+            }
+          },
+          `${n} questions`
+        )
+      );
+      const zoneChrono =
+        longueur >= 50
+          ? h(
+              'div',
+              { class: 'carte', style: 'margin-top:12px' },
+              h('h3', { text: 'Chronomètre' }),
+              h(
+                'p',
+                {
+                  class: 'avertissement',
+                  text: 'Pour une série longue, choisissez le rythme : quarante‑cinq ou soixante secondes, ou sans limite.'
+                }
+              ),
+              h(
+                'div',
+                { class: 'choix-qcm-rang' },
+                ...CHRONOS_LONGS.map((c) =>
+                  h(
+                    'button',
+                    {
+                      type: 'button',
+                      class: `btn choix-qcm${c.secondes === chrono ? ' actif' : ''}`,
+                      onclick: () => {
+                        chrono = S.enregistrerChronoQcm(c.secondes);
+                        rafraichir();
+                      }
+                    },
+                    c.libelle
+                  )
+                )
+              )
+            )
+          : h(
+              'p',
+              {
+                class: 'avertissement',
+                style: 'margin-top:12px',
+                text: 'Trente secondes par question pour les séries de 10 ou 25.'
+              }
+            );
+
+      const hint = manque
+        ? h(
+            'div',
+            { class: 'carte alerte-pool', style: 'margin-top:12px' },
+            h(
+              'p',
+              {
+                text: `Ce parcours ne compte que ${disponible} question${disponible > 1 ? 's' : ''}. Vous en avez demandé ${longueur}.`
+              }
+            ),
+            h(
+              'p',
+              {
+                class: 'avertissement',
+                text: 'Pas de remplissage silencieux avec d’autres parcours : confirmez le maximum disponible, ou ouvrez le programme complet.'
+              }
+            ),
+            h(
+              'div',
+              { class: 'actions' },
+              h(
+                'button',
+                {
+                  type: 'button',
+                  class: 'btn principal',
+                  onclick: () => demarrer(pool, disponible, chrono)
+                },
+                `Utiliser les ${disponible} disponibles`
+              ),
+              h('a', { class: 'btn', href: '#/qcm', text: 'Programme complet' })
+            )
+          )
+        : null;
+
+      zoneChoix.replaceChildren(
+        h(
+          'div',
+          { class: 'carte' },
+          h('h3', { text: 'Longueur de la série' }),
+          h(
+            'p',
+            {
+              text: bloc
+                ? `${disponible} question${disponible > 1 ? 's' : ''} dans ce parcours. Le tirage privilégie les questions jamais vues, puis non acquises.`
+                : `${disponible} questions au programme. Le tirage privilégie les questions jamais vues, puis non acquises.`
+            }
+          ),
+          h('div', { class: 'choix-qcm-rang' }, ...boutonsLongueur),
+          zoneChrono
+        ),
+        hint
+      );
+
+      zoneActions.replaceChildren(
+        manque
+          ? null
+          : h(
+              'button',
+              {
+                type: 'button',
+                class: 'btn principal',
+                onclick: () => demarrer(pool, effective, chrono)
+              },
+              effective === longueur ? `Commencer · ${effective} questions` : `Commencer · ${effective} questions (maximum)`
+            ),
+        h('a', { class: 'btn', href: '#/entrainement', text: 'Retour' })
+      );
+    }
+
+    contenu.replaceChildren(
+      h(
+        'p',
+        {
+          class: 'sous-titre',
+          text: 'Choisissez la longueur. Les questions déjà maîtrisées (deux bonnes réponses sans faute) passent en dernier.'
+        }
+      ),
+      zoneChoix,
+      zoneActions
+    );
+    rafraichir();
+  }
+
+  function demarrer(pool, longueurEffective, chronoSecondes) {
+    const stats = S.lire().qcm || {};
+    questions = tirerSerieQcm(pool, stats, longueurEffective);
+    if (!questions.length) {
+      contenu.replaceChildren(vide('Aucune question dans ce parcours.', null, h('a', { class: 'btn', href: '#/qcm', text: 'Programme complet' })));
+      return;
+    }
+    dureeMs = dureeQuestionMs(longueurEffective, chronoSecondes);
+    resultats.length = 0;
+    for (let i = 0; i < questions.length; i += 1) resultats.push(null);
+    jalonsDepart = S.capturerJalons();
+    index = 0;
+    rendre();
+  }
 
   function barre() {
     return h(
@@ -99,7 +269,8 @@ export function vueQcm(filtreBloc) {
     const q = questions[index];
     const { options, bonne } = optionsMelangees(q);
     const sujet = SUJET_PAR_ID.get(q.sujet);
-    const chrono = h('div', { class: 'compteur due', text: '30 s' });
+    const libelleChrono = dureeMs === null ? 'Sans chrono' : `${Math.round(dureeMs / 1000)} s`;
+    const chrono = h('div', { class: `compteur${dureeMs === null ? '' : ' due'}`, text: libelleChrono });
     const zoneOptions = h('div', { class: 'options' });
     const zoneExplication = h('div', {});
     let repondu = false;
@@ -162,8 +333,13 @@ export function vueQcm(filtreBloc) {
       zoneExplication
     );
 
+    if (dureeMs === null) {
+      arreter = null;
+      return;
+    }
+
     arreter = chronometre({
-      duree: SECONDES_PAR_QUESTION,
+      duree: dureeMs,
       surTic: ({ restant }) => {
         chrono.textContent = `${Math.ceil(restant / 1000)} s`;
         chrono.classList.toggle('due', restant > 8000);
@@ -185,7 +361,7 @@ export function vueQcm(filtreBloc) {
     const jalons = S.jalonsDepuis(jalonsDepart);
     const ratees = questions.filter((q, i) => resultats[i] === false);
 
-    const bloc = h(
+    const blocRes = h(
       'div',
       { class: 'resultat carte' },
       h('div', { class: `grosse-note ${part >= 0.7 ? 'ok' : 'ko'}`, text: `${justes}/${questions.length}` }),
@@ -197,7 +373,7 @@ export function vueQcm(filtreBloc) {
     );
 
     contenu.replaceChildren(
-      bloc,
+      blocRes,
       ratees.length
         ? h(
             'div',
@@ -222,16 +398,16 @@ export function vueQcm(filtreBloc) {
       h(
         'div',
         { class: 'actions' },
-        h('button', { type: 'button', class: 'btn principal', onclick: () => window.dispatchEvent(new HashChangeEvent('hashchange')) }, 'Nouvelle série'),
+        h('button', { type: 'button', class: 'btn principal', onclick: ecranDepart }, 'Nouvelle série'),
         h('a', { class: 'btn', href: '#/entrainement', text: 'Autres exercices' })
       )
     );
 
-    if (jalons.rang || jalons.sceaux.length) celebrer('sceau', bloc);
-    else if (part >= 0.8) celebrer('franc', bloc);
+    if (jalons.rang || jalons.sceaux.length) celebrer('sceau', blocRes);
+    else if (part >= 0.8) celebrer('franc', blocRes);
   }
 
-  rendre();
+  ecranDepart();
   return { noeud: racine, nettoyer };
 }
 

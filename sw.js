@@ -1,5 +1,5 @@
 // Service worker : coque en cache, version.json toujours reseau.
-const CACHE = 'deonto-flash-2026.08.28.1';
+const CACHE = 'deonto-flash-2026.09.07.1';
 
 const COQUE = [
   './',
@@ -17,6 +17,7 @@ const COQUE = [
   './js/mode-fiches.js',
   './js/mode-oral.js',
   './js/mode-exercices.js',
+  './js/qcm.js',
   './js/vue-progression.js',
   './js/data/index.js',
   './js/data/regles.js',
