@@ -8,6 +8,18 @@ import { LONGUEURS_QCM } from './qcm.js';
 const CLE = 'deonto-flash:v1';
 const JOUR_MS = 86400000;
 
+/** Thème initial si aucune préférence n’a encore été enregistrée. */
+export function themeSysteme() {
+  try {
+    if (typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: light)').matches) {
+      return 'papier';
+    }
+  } catch {
+    /* environnement sans matchMedia (tests Node) */
+  }
+  return 'encre';
+}
+
 const VIDE = () => ({
   profil: { prenom: '' },
   theme: 'encre',
@@ -59,6 +71,10 @@ export function charger() {
   try {
     const brut = localStorage.getItem(CLE);
     if (brut) etat = fusionner(VIDE(), JSON.parse(brut));
+    else {
+      etat = VIDE();
+      etat.theme = themeSysteme();
+    }
   } catch {
     etat = VIDE();
   }

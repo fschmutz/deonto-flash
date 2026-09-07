@@ -35,7 +35,7 @@ termine par une grille d’auto‑évaluation notée sur 20.
 | Mode | Ce qu’il travaille |
 | --- | --- |
 | **Simulateur d’oral** | Le format réel : tirage au sort, 30 min chronométrées en trois phases, questions de jury révélées une à une, note /20 sur cinq critères |
-| **Fiches** | La mémoire longue. 300 fiches planifiées par [FSRS‑6](https://github.com/open-spaced-repetition) : chaque carte revient le jour où vous êtes sur le point de l’oublier |
+| **Fiches** | La mémoire longue. 339 fiches planifiées par [FSRS‑6](https://github.com/open-spaced-repetition) : chaque carte revient le jour où vous êtes sur le point de l’oublier |
 | **Plan express** | Le réflexe que le jury note en premier : 90 secondes pour produire un plan annonçable, puis comparaison avec un plan modèle |
 | **QCM et cas pratiques** | Longueur au choix (10–100), tirage priorisant les non acquis ; délais, seuils, quorums, et 34 situations à qualifier |
 
@@ -88,7 +88,7 @@ node --test 'test/*.test.mjs'
 ```
 
 La suite vérifie que le programme officiel est couvert intégralement et dans l’ordre, que
-chaque sujet porte son plan, ses fiches, ses QCM, ses questions de jury et son cas pratique,
+chaque sujet porte son plan, ses fiches, ses QCM, ses questions de jury et un ou deux cas pratiques,
 qu’aucune bonne réponse ne pointe hors de sa liste d’options, et que le planificateur
 FSRS‑6 respecte ses invariants.
 

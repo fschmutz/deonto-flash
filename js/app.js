@@ -16,10 +16,26 @@ S.charger();
 
 // ---------- Thème ----------
 
+function syncBoutonTheme(nom) {
+  const btn = $('theme');
+  if (!btn) return;
+  const papier = nom === 'papier';
+  const icone = btn.querySelector('.theme-icone');
+  const libelle = btn.querySelector('.theme-libelle');
+  if (icone) icone.textContent = papier ? '☼' : '☾';
+  if (libelle) libelle.textContent = papier ? 'Papier' : 'Encre';
+  const titre = papier ? 'Thème papier' : 'Thème encre';
+  btn.title = titre;
+  btn.setAttribute('aria-label', titre);
+  btn.setAttribute('aria-pressed', papier ? 'false' : 'true');
+}
+
 function appliquerTheme(nom) {
-  document.documentElement.dataset.theme = nom;
+  const theme = nom === 'papier' ? 'papier' : 'encre';
+  document.documentElement.dataset.theme = theme;
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute('content', nom === 'papier' ? '#f5f2ec' : '#0e1116');
+  if (meta) meta.setAttribute('content', theme === 'papier' ? '#f5f2ec' : '#0e1116');
+  syncBoutonTheme(theme);
 }
 appliquerTheme(S.lire().theme || 'encre');
 $('marque-logo').append(logo(28));
@@ -295,17 +311,27 @@ function vueSujet(id) {
         h('details', { class: 'repli jury-q' }, h('summary', { text: q.q }), h('div', {}, h('p', { text: q.r })))
       )
     ),
-    s.cas
+    s.cas || s.cas2
       ? h(
           'div',
           {},
-          section('Cas pratique'),
-          h(
-            'div',
-            { class: 'carte' },
-            h('p', { text: s.cas.e }),
-            h('details', { class: 'repli' }, h('summary', { text: 'Analyse attendue' }), h('div', {}, h('p', { text: s.cas.r })))
-          )
+          section(s.cas2 ? 'Cas pratiques' : 'Cas pratique', s.cas2 ? '2' : undefined),
+          s.cas
+            ? h(
+                'div',
+                { class: 'carte' },
+                h('p', { text: s.cas.e }),
+                h('details', { class: 'repli' }, h('summary', { text: 'Analyse attendue' }), h('div', {}, h('p', { text: s.cas.r })))
+              )
+            : null,
+          s.cas2
+            ? h(
+                'div',
+                { class: 'carte', style: 'margin-top:1rem' },
+                h('p', { text: s.cas2.e }),
+                h('details', { class: 'repli' }, h('summary', { text: 'Analyse attendue' }), h('div', {}, h('p', { text: s.cas2.r })))
+              )
+            : null
         )
       : null,
     h(
