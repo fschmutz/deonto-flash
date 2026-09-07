@@ -2,6 +2,17 @@
 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 
+## 2026.09.07.3
+
+### Corrigé
+- Bouton de thème : largeur fixe héritée de `.retour` qui tronquait **Encre** / **Papier** ;
+  pastille en `width: auto` avec libellé complet (icône seule sous 380px).
+- En-tête : marges latérales `safe-area` pour éviter le collage au bord / scrollbar.
+
+### Modifié
+- Colonne de contenu plus large sur grands écrans (`--max` 52rem ≥900px, 58rem ≥1200px) ;
+  grille « Travailler » assouplie (`minmax(260px, 1fr)`).
+
 ## 2026.09.07.2
 
 ### Ajouté
