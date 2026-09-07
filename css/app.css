@@ -111,7 +111,7 @@ button { font: inherit; color: inherit; }
 .entete {
   position: sticky; top: 0; z-index: 12;
   display: flex; align-items: center; gap: 10px;
-  padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
+  padding: calc(10px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
   background: color-mix(in srgb, var(--fond) 88%, transparent);
   backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid var(--trait);
@@ -123,7 +123,10 @@ button { font: inherit; color: inherit; }
 
 .retour, .theme {
   background: var(--carte); border: 1px solid var(--trait); border-radius: 999px;
-  width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; font-size: 15px;
+  display: grid; place-items: center; cursor: pointer; font-size: 15px;
+}
+.retour {
+  width: 36px; height: 36px;
 }
 .retour:hover, .theme:hover { border-color: var(--trait-fort); }
 
@@ -131,16 +134,21 @@ button { font: inherit; color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.35rem 0.65rem;
-  min-width: auto;
+  width: auto;
+  height: auto;
+  min-height: 36px;
+  max-width: none;
+  padding: 6px 12px;
+  white-space: nowrap;
   font-size: 0.75rem;
   letter-spacing: 0.02em;
 }
 .theme-icone { font-size: 0.95rem; line-height: 1; }
 .theme-libelle { font-variant: small-caps; opacity: 0.9; }
-@media (max-width: 420px) {
+/* Icon-only under 380px — never clip mid-word; aria-label stays on the button. */
+@media (max-width: 379px) {
   .theme-libelle { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .theme { padding: 0.4rem 0.55rem; }
+  .theme { width: 36px; height: 36px; min-height: 36px; padding: 0; gap: 0; }
 }
 
 
@@ -489,6 +497,19 @@ textarea.champ:focus { border-color: var(--or); outline: none; }
   #app { padding: 28px 20px 12px; }
   .barre { padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
   .barre a { font-size: 12px; }
+}
+
+/* Desktop: wider content column without newspaper measure; header/nav stay full-bleed. */
+@media (min-width: 900px) {
+  :root { --max: 52rem; }
+  #app { padding: 28px 24px 12px; }
+}
+
+@media (min-width: 1200px) {
+  :root { --max: 58rem; }
+  #app { padding: 32px 28px 12px; }
+  .modes { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .grille-2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 }
 
 @media print {
