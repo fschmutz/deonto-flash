@@ -2,6 +2,27 @@
 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 
+## 2026.09.07.1
+
+### Ajouté
+- QCM hybride : sélecteur de longueur (10 / 25 / 50 / 100), mémorisé localement.
+- Tirage intelligent : priorité aux questions jamais vues, puis non acquises ; les
+  questions acquises (au moins deux bonnes réponses, sans aucune faute) ne sont reprises
+  qu’en dernier recours.
+- Chronomètre adapté : 30 s pour 10 ou 25 questions ; pour 50 ou 100, choix entre
+  45 s, 60 s ou sans chronomètre.
+- Si un parcours filtre compte moins de questions que la longueur choisie, confirmation
+  explicite (maximum disponible ou programme complet) : aucun remplissage silencieux
+  depuis un autre parcours.
+
+### Prévu
+- Enrichissement de la banque QCM (second passage) : viser environ 5 à 8 questions
+  supplémentaires par sujet, pour équilibrer les parcours encore courts (organisation,
+  responsabilité) et soutenir les séries de 50–100 sans recyclage trop rapide des acquis.
+
+### Modifié
+- Documentation des modes (wiki) et carte d’entrée des exercices.
+
 ## 2026.08.28.2
 
 ### Ajouté

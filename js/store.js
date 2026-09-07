@@ -3,6 +3,7 @@
 
 import { BLOCS, CARTES, SUJETS } from './data/index.js';
 import { ETAT, ficheNeuve } from './fsrs.js';
+import { LONGUEURS_QCM } from './qcm.js';
 
 const CLE = 'deonto-flash:v1';
 const JOUR_MS = 86400000;
@@ -16,6 +17,8 @@ const VIDE = () => ({
   plans: {}, // id de sujet -> { faits, dernier }
   oraux: [], // { sujet, note, duree, date }
   vus: {}, // id de sujet -> nombre de consultations de la fiche
+  longueurQcm: 10, // dernier choix 10 / 25 / 50 / 100
+  chronoQcm: 45, // secondes par question pour les series >= 50 ; 0 = sans chrono
   xp: 0,
   serie: { jours: 0, dernier: null }
 });
@@ -285,6 +288,34 @@ export function marquerVu(sujetId) {
 
 export const sujetsRevus = () => Object.keys(etat.vus).length;
 export const totalSujets = () => SUJETS.length;
+
+// --- Preferences QCM ------------------------------------------------------
+
+export function longueurQcmChoisie() {
+  const n = etat.longueurQcm;
+  return LONGUEURS_QCM.includes(n) ? n : 10;
+}
+
+export function enregistrerLongueurQcm(n) {
+  const v = LONGUEURS_QCM.includes(n) ? n : 10;
+  modifier((s) => {
+    s.longueurQcm = v;
+  });
+  return v;
+}
+
+export function chronoQcmChoisi() {
+  const n = etat.chronoQcm;
+  return n === 0 || n === 45 || n === 60 ? n : 45;
+}
+
+export function enregistrerChronoQcm(secondes) {
+  const v = secondes === 0 || secondes === 45 || secondes === 60 ? secondes : 45;
+  modifier((s) => {
+    s.chronoQcm = v;
+  });
+  return v;
+}
 
 // --- Jalons ---------------------------------------------------------------
 // Un rang ou un sceau se gagne au milieu d'un exercice, jamais sur un ecran dedie.

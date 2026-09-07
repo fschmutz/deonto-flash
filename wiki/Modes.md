@@ -36,9 +36,18 @@ premières minutes.
 
 ## QCM et cas pratiques
 
-Dix questions, trente secondes chacune, sur ce qui ne s’improvise pas : délais, seuils,
-quorums, majorités. Les options sont mélangées à chaque affichage : la position d’une bonne
-réponse n’est jamais un indice.
+Sélecteur de longueur (10, 25, 50 ou 100 questions) mémorisé dans le navigateur. Le tirage
+est hybride : d’abord les questions jamais vues, puis celles non encore acquises ; une
+question est considérée acquise après au moins deux bonnes réponses sans aucune faute. Les
+acquis ne reviennent qu’en dernier recours, pour remplir une série longue.
+
+Chronomètre : trente secondes par question pour les séries de 10 ou 25 ; pour 50 ou 100,
+choix entre quarante‑cinq secondes, soixante secondes, ou sans chronomètre. Les options
+sont mélangées à chaque affichage : la position d’une bonne réponse n’est jamais un indice.
+
+Si un parcours compte moins de questions que la longueur demandée, l’application le dit et
+propose le maximum disponible ou le programme complet — sans compléter silencieusement avec
+d’autres parcours.
 
 Les cas pratiques présentent une situation à qualifier. Formulez l’analyse à voix haute : 
 textes applicables, qualification, conséquence, conduite à tenir : avant d’ouvrir la réponse.
